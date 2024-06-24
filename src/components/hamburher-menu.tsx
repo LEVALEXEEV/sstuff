@@ -8,7 +8,7 @@ function HamburgerMenu() {
       </label>
       <input id="menu__toggle" type="checkbox" />
       <ul className="menu__box">
-          <li><Link className="menu__item" to="#">Каталог</Link></li>
+          <li><Link className="menu__item" to="/catalog">Каталог</Link></li>
           <li><Link className="menu__item" to="#">Доставка</Link></li>
           <li><Link className="menu__item" to="#">FQA</Link></li>
           <li><Link className="menu__item" to="#">Об авторах</Link></li>

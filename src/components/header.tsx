@@ -3,15 +3,15 @@ import HamburgerMenu from './hamburher-menu';
 
 function Header(): JSX.Element {
   return (
-    <section className="header_wrap">
-      
+    <section className="header__wrap">
+      <div>
         <header className="header">
-        <Link to="/">
+          <Link to="/">
             <img src="img/icon.jpg" width={80}/>
-        </Link>
-        <HamburgerMenu/>
-      </header>
-      
+          </Link>
+          <HamburgerMenu/>
+        </header>
+      </div>
     </section>
   );
 }

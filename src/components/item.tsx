@@ -3,10 +3,10 @@ import { ItemTypes } from "../const";
 
 type ItemProps = {
     previewImage: string,
-    price: number,
-    id: string,
+    price: number | undefined,
+    id: string | undefined,
     title: string,
-    type: ItemTypes
+    type: ItemTypes | undefined
   };
 
 function Item({previewImage, type, id, title, price}: ItemProps): JSX.Element {
@@ -24,7 +24,7 @@ function Item({previewImage, type, id, title, price}: ItemProps): JSX.Element {
                 </h2>
                 <div className="card__price-wrapper">
                     <div className="card__price">
-                        <b className="card__price-value">₽{price}</b>
+                        <b className="card__price-value">{(price) ? '₽' + price : "____"}</b>
                     </div>
                 </div>
             </div>

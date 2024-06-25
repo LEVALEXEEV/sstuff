@@ -10,7 +10,7 @@ function HamburgerMenu() {
       <ul className="menu__box">
           <li><Link className="menu__item" to="/catalog">Каталог</Link></li>
           <li><Link className="menu__item" to="#">Доставка</Link></li>
-          <li><Link className="menu__item" to="#">FQA</Link></li>
+          <li><Link className="menu__item" to="/sizes">Таблицы размеров</Link></li>
           <li><Link className="menu__item" to="#">Об авторах</Link></li>
       </ul>
   </div>   

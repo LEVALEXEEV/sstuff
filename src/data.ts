@@ -1,6 +1,7 @@
 import { ItemTypes } from "./const";
 import { VideoType } from "./types/Video";
 import { ItemType } from "./types/item";
+import { SizeTableType } from "./types/sizes-table";
 
 export const Videos: VideoType[] = [
     {
@@ -36,7 +37,7 @@ export const Items: ItemType[] = [
         price: 200,
         id: 'pants1',
         title: 'shorts',
-        type: ItemTypes.Pants
+        type: ItemTypes.Shorts
     },
     {
         previewImages: ['olympicstuff-fw.jpg'],
@@ -44,5 +45,24 @@ export const Items: ItemType[] = [
         id: 'olympicstuff',
         title: 'olympicstuff',
         type: ItemTypes.Tee
+    }
+]
+
+export const SizesTables: SizeTableType[] = [
+    {
+        previewImage: 'sizes-tables/longsleeve-net.jpg',
+        type: ItemTypes.Longsleeve
+    },
+    {
+        previewImage: 'sizes-tables/tee-net.jpg',
+        type: ItemTypes.Tee
+    },
+    {
+        previewImage: 'sizes-tables/hoodie-net.jpg',
+        type: ItemTypes.Hoodie
+    },
+    {
+        previewImage: 'sizes-tables/shorts-net.jpg',
+        type: ItemTypes.Shorts
     }
 ]

@@ -1,7 +1,7 @@
 export enum ItemTypes {
     Longsleeve = 'longsleeve',
     Hoodie = 'hoodie',
-    Pants = 'pants',
+    Shorts = 'shorts',
     Cup = 'cup',
     Tee = 'tee'
 }

@@ -1,6 +1,8 @@
-import { Video } from "./types/Video";
+import { ItemTypes } from "./const";
+import { VideoType } from "./types/Video";
+import { ItemType } from "./types/item";
 
-export const Videos: Video[] = [
+export const Videos: VideoType[] = [
     {
         src: "videos/prev1.MOV",
         id: '1',
@@ -19,4 +21,28 @@ export const Videos: Video[] = [
         description: 'CUP',
         link: '/catalog'
     },
+]
+
+export const Items: ItemType[] = [
+    {
+        previewImages: ['phelps-hands-fw.jpg', 'phelps-hands-bc.jpg', 'longsleeve-net.jpg'],
+        price: 200,
+        id: 'phelps-hands',
+        title: 'phelps-hands',
+        type: ItemTypes.Hoodie
+    },
+    {
+        previewImages: ['pants1-fw.jpg'],
+        price: 200,
+        id: 'pants1',
+        title: 'shorts',
+        type: ItemTypes.Pants
+    },
+    {
+        previewImages: ['olympicstuff-fw.jpg'],
+        price: 200,
+        id: 'olympicstuff',
+        title: 'olympicstuff',
+        type: ItemTypes.Tee
+    }
 ]

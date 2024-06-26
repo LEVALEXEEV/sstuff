@@ -1,12 +1,28 @@
+import { useState } from "react";
 import Footer from "../components/footer";
 import FullSizeTable from "../components/full-size-table";
 import Header from "../components/header";
 import SizesTable from "../components/sizes-table";
 import { SizesTables } from "../data";
+import { ItemTypes } from "../const";
 
 function SizesPage(): JSX.Element {
+    const [activeImg, setActiveImg] = useState<string | undefined>(undefined);
     const showTable = (evt: React.MouseEvent) => {
-
+        switch(evt.target.classList[1]) {
+            case 'card__image__' + ItemTypes.Hoodie: 
+                setActiveImg('hoodie-net-full.jpg');
+                break;
+            case 'card__image__' + ItemTypes.Longsleeve:
+                setActiveImg('longsleeve-net-full.jpg');
+                break;
+            case 'card__image__' + ItemTypes.Shorts:
+                setActiveImg('shorts-net-full.jpg');
+                break;
+            case 'card__image__' + ItemTypes.Tee:
+                setActiveImg('tee-net-full.jpg');
+                break;
+        }
         const element = document.getElementById('sizes-table-full-image__show');
         if (element) {
             element.classList.add('sizes-table-full-image__show');
@@ -34,7 +50,7 @@ function SizesPage(): JSX.Element {
             </section>
             <Footer/>
         </div>
-        <FullSizeTable />
+        <FullSizeTable img={activeImg}/>
     </>
       
     );

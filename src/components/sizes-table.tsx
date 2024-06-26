@@ -9,8 +9,8 @@ function SizesTable({previewImage, title}: SizesTableProps): JSX.Element {
             <div className="card__image-wrapper">
                 <img className={'card__image card__image__' + title} src={'img/items/'+ previewImage} width="300"  alt="Place image" />
             </div>
-            <div className="card__info">
-                <h2 className="card__name">
+            <div className={"card__info card__image__" + title}>
+                <h2 className={"card__name card__image__" + title}>
                     {title}
                 </h2>
             </div>

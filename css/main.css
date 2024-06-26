@@ -109,7 +109,7 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 200px;
+    width: 15%;
     height: 100%;
     margin: 0;
     padding: 90px 0;
@@ -333,7 +333,7 @@ body {
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 0;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
 
 .card__image-wrapper {
@@ -417,6 +417,14 @@ body {
   overflow: hidden;
 }
 
+body .boddy-img__hide {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 0;
+}
+
 .sizes-table-full-image__show {
   position: absolute;
   top: 0;
@@ -434,16 +442,26 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    vertical-align: middle;
     aspect-ratio: 1/1;
     width: 40%;
     border-radius: 15px;
-    background: url(../img/items/sizes-tables/hoodie-net.jpg) center center no-repeat;
+    background-color: white;
     background-size: 100%;
     min-width: 380px;
     z-index: 6;
     transition: transform .4s ease-in-out;
+
+    img {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      height : auto;
+      max-height: 100%;
+      max-width: 100%;
+      visibility: visible;
+    }
   }
 
   .sizes-table-mask {

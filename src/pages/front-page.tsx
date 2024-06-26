@@ -17,9 +17,9 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header/>
-      <section className="main__wrap">
+      <section className="main__wrap" style={(device > -1) ? {height: '700px'} : {height: '900px'}}>
         <div className="main">
-        <div className="container" style={(device > -1) ? {maxHeight: '500px'} : {maxHeight: '600px'}}>
+        <div className="container" style={(device > -1) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
             <input type="radio" name="slider" id="item-1" onClick={() => handleChangeVideo('1')} defaultChecked/>
             <input type="radio" name="slider" id="item-2" onClick={() => handleChangeVideo('2')}/>
             <input type="radio" name="slider" id="item-3" onClick={() => handleChangeVideo('3')}/>

@@ -1,5 +1,5 @@
 import { ItemTypes } from "./const";
-import { VideoType } from "./types/Video";
+import { VideoType } from "./types/video";
 import { ItemType } from "./types/item";
 import { SizeTableType } from "./types/sizes-table";
 
@@ -7,19 +7,19 @@ export const Videos: VideoType[] = [
     {
         src: "videos/prev1.MOV",
         id: '1',
-        description: 'COLLECTION',
+        description: 'collection',
         link: '/catalog'
     },
     {
         src: "videos/prev2.MOV",
         id: '2',
-        description: 'STUFF',
+        description: 'stuff',
         link: '/catalog'
     },
     {
         src: "videos/prev3.MOV",
         id: '3',
-        description: 'CUP',
+        description: 'cup',
         link: '/catalog'
     },
 ]

@@ -9,6 +9,7 @@ function CatalogPage(): JSX.Element {
         <Header/>
         <section className="main__wrap-catalog">
             <ul className="catalog">
+                <h2 className="catalog__header">CATALOG</h2>
                 {Items.map((item) => (
                     <li key={item.id}>
                         <Item

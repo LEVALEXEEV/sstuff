@@ -5,6 +5,17 @@ import SizesTable from "../components/sizes-table";
 import { SizesTables } from "../data";
 
 function SizesPage(): JSX.Element {
+    const showTable = (evt: React.MouseEvent) => {
+
+        const element = document.getElementById('sizes-table-full-image__show');
+        if (element) {
+            element.classList.add('sizes-table-full-image__show');
+        }
+        const body = document.getElementsByTagName('body');
+        if (body) {
+            body[0].classList.add('body_overflow__hidden');
+        }
+    }
     return (
     <>
         <div className="sizes-page">
@@ -12,7 +23,7 @@ function SizesPage(): JSX.Element {
             <section className="main__wrap-sizes">
                 <ul className="catalog">
                     {SizesTables.map((item) => (
-                        <li key={item.type}>
+                        <li key={item.type} onClick={(evt) => {showTable(evt)}}>
                             <SizesTable
                                 previewImage={item.previewImage} 
                                 title={item.type}

@@ -1,14 +1,28 @@
 import { Link } from 'react-router-dom';
 import HamburgerMenu from './hamburher-menu';
 
-function Header(): JSX.Element {
+type HeaderProps = {
+  backLink?: string
+}
+
+function Header({backLink}: HeaderProps): JSX.Element {
   return (
     <section className="header__wrap">
-      <div>
+      <div className='header__wrap__div'>
         <header className="header">
-          <Link to="/">
-            <img src="img/icon.jpg" width={80}/>
-          </Link>
+          <div className='backlink__div'>
+            <Link to="/">
+              <img src="img/icon.jpg" width={80}/>
+            </Link>
+            {
+              (backLink) 
+              ?
+                <Link to={backLink}>
+                  {'< Back'}
+                </Link>
+              : undefined
+            }
+          </div>
           <HamburgerMenu/>
         </header>
       </div>

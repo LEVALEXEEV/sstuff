@@ -1,0 +1,65 @@
+import { useParams } from "react-router-dom";
+import Footer from "../components/footer";
+import Header from "../components/header";
+import { Items } from "../data";
+import { useState } from "react";
+import Background from "../components/background";
+
+function ItemPage(): JSX.Element {
+    const [activeImg, setActiveImg] = useState(1);
+    const params = useParams();
+    const item = Items.find((item) => item.id === params.id);
+    const device: boolean = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false);
+    const indexes = [];
+    for (var index in item?.previewImages) {indexes.push(Number(index)+1);}
+    return (
+      <>
+        <Header backLink="/catalog"/>
+        <section className="main__wrap main__item__wrap">
+          <ul>
+            <li className="item-img-slider__wrap" style={(device)? {maxWidth: '12em', minWidth: '11em'} : {minWidth: '20em'}}>
+                <div className="wrapper">
+                    {indexes.map((i) => (<input key={item?.id + `${i}`} type="radio" name="point" id={"slide" + `${i}`} defaultChecked={i == 1} onChange={() => setActiveImg(i)}></input>))}
+                    <div className="slider">
+                        {indexes.map((i) => (<div key={item?.id + `${i}`} className={"slides slide" + `${i}`}><img src={"img/items/" + item?.previewImages[i-1]}/></div>))}
+                    </div>
+                    <div className="controls">
+                        {indexes.map((i) => (<label key={item?.id + `${i}`} htmlFor={"slide" + `${i}`} style={(device)? {width: '30px', height: '30px'} : {width: '60px', height: '60px'}} onClick={() => setActiveImg(i)}><img src={"img/items/" + item?.previewImages[i-1]}/></label>))}
+                    </div>
+                </div>
+                <label className="back__button" htmlFor={"slide" + (activeImg-1)}><img src="img/arrow-prev-icon.svg" width={25}/></label>
+                <label className="forward__button" htmlFor={"slide" + (activeImg+1)}><img src="img/arrow-next-icon.svg" width={25}/></label>
+            </li>
+            <li className="item-description__wrap" style={(device)? {maxWidth: '12em'} : {minWidth: '500px'}}>
+                <div className="item-description__wrap-div">
+                    <article className="item_upper__wrapper">
+                        <h1>{item?.title}</h1>
+                        <h2>{'ID: ' + item?.id}</h2>
+                    </article>
+                    <article className="item_middle__wrapper">
+                        <h3>{item?.price}</h3>
+                        {(item?.sizes.length != 0) 
+                            ? 
+                                <div className="size-selector__wrap">
+                                    <label htmlFor="size-select">Size</label>
+                                    <select name="drop-down" id="size-select">
+                                        {item?.sizes.map((size) => (<option value={size} key={size}>{size}</option>))}
+                                    </select>
+                                </div>
+                            :
+                                undefined
+                        }
+                    </article>
+                    <button>To cart</button>
+                    <p>{item?.description}</p>
+                </div>
+                <Background />
+            </li>
+          </ul>
+        </section>
+        <Footer/>
+      </>
+    );
+  }
+  
+  export default ItemPage;

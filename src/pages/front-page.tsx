@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 
 function FrontPage(): JSX.Element {
-  var device = navigator.userAgent.toLowerCase().search('iphone');
+  const device: boolean = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false);
   const [activeVideo, setActiveVideo] = useState('1');
   const [isMute, setMute] = useState(false);
   const handleChangeVideo = (next: string) => {
@@ -16,10 +16,10 @@ function FrontPage(): JSX.Element {
   };
   return (
     <>
-      <Header/>
-      <section className="main__wrap" style={(device > -1) ? {height: '700px'} : {height: '900px'}}>
+      <Header />
+      <section className="main__wrap" style={(device) ? {height: '700px'} : {height: '900px'}}>
         <div className="main">
-        <div className="container" style={(device > -1) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
+        <div className="container" style={(device) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
             <input type="radio" name="slider" id="item-1" onClick={() => handleChangeVideo('1')} defaultChecked/>
             <input type="radio" name="slider" id="item-2" onClick={() => handleChangeVideo('2')}/>
             <input type="radio" name="slider" id="item-3" onClick={() => handleChangeVideo('3')}/>

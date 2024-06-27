@@ -26,25 +26,31 @@ export const Videos: VideoType[] = [
 
 export const Items: ItemType[] = [
     {
-        previewImages: ['phelps-hands-fw.jpg', 'phelps-hands-bc.jpg', 'longsleeve-net.jpg'],
-        price: 200,
+        previewImages: ['phelps-hands-fw.jpg', 'phelps-hands-bc.jpg', 'sizes-tables/longsleeve-net.jpg'],
+        price: 2000,
         id: 'phelps-hands',
         title: 'phelps-hands',
-        type: ItemTypes.Hoodie
+        type: ItemTypes.Hoodie,
+        description: '100% хлопок Плотность 240гр',
+        sizes: ['s', 'm', 'l', 'xl']
     },
     {
         previewImages: ['pants1-fw.jpg'],
         price: 200,
-        id: 'pants1',
+        id: 'shorts',
         title: 'shorts',
-        type: ItemTypes.Shorts
+        type: ItemTypes.Shorts,
+        description: '100% хлопок Плотность 240гр',
+        sizes: ['s', 'm', 'l', 'xl']
     },
     {
         previewImages: ['olympicstuff-fw.jpg'],
         price: 200,
         id: 'olympicstuff',
         title: 'olympicstuff',
-        type: ItemTypes.Tee
+        type: ItemTypes.Tee,
+        description: '100% хлопок Плотность 240гр',
+        sizes: ['s', 'm', 'l', 'xl']
     }
 ]
 

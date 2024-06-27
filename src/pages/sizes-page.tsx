@@ -35,7 +35,7 @@ function SizesPage(): JSX.Element {
     return (
     <>
         <div className="sizes-page">
-            <Header/>
+            <Header />
             <section className="main__wrap-sizes">
                 <ul className="catalog">
                     {SizesTables.map((item) => (

@@ -24,14 +24,14 @@ function ItemPage(): JSX.Element {
                         {indexes.map((i) => (<div key={item?.id + `${i}`} className={"slides slide" + `${i}`}><img src={"img/items/" + item?.previewImages[i-1]}/></div>))}
                     </div>
                     <div className="controls">
-                        {indexes.map((i) => (<label key={item?.id + `${i}`} htmlFor={"slide" + `${i}`} style={(device)? {width: '30px', height: '30px'} : {width: '60px', height: '60px'}} onClick={() => setActiveImg(i)}><img src={"img/items/" + item?.previewImages[i-1]}/></label>))}
+                        {indexes.map((i) => (<label key={item?.id + `${i}`} htmlFor={"slide" + `${i}`} style={(device)? {width: '40px', height: '40px'} : {width: '60px', height: '60px'}} onClick={() => setActiveImg(i)}><img src={"img/items/" + item?.previewImages[i-1]}/></label>))}
                     </div>
                 </div>
-                <label className="back__button" htmlFor={"slide" + (activeImg-1)}><img src="img/arrow-prev-icon.svg" width={25}/></label>
-                <label className="forward__button" htmlFor={"slide" + (activeImg+1)}><img src="img/arrow-next-icon.svg" width={25}/></label>
+                <label className="back__button" htmlFor={"slide" + (activeImg-1)}><img src="img/arrow-prev-icon.svg" width={35}/></label>
+                <label className="forward__button" htmlFor={"slide" + (activeImg+1)}><img src="img/arrow-next-icon.svg" width={35}/></label>
             </li>
-            <li className="item-description__wrap" style={(device)? {maxWidth: '12em'} : {minWidth: '500px'}}>
-                <div className="item-description__wrap-div">
+            <li className="item-description__wrap" style={(device)? {maxWidth: '12em', minWidth: '10.5em'} : {minWidth: '500px'}}>
+                <div className="item-description__wrap-div" style={(device)? {minHeight: '400px'} : {minHeight: '600px'}}>
                     <article className="item_upper__wrapper">
                         <h1>{item?.title}</h1>
                         <h2>{'ID: ' + item?.id}</h2>
@@ -50,8 +50,10 @@ function ItemPage(): JSX.Element {
                                 undefined
                         }
                     </article>
-                    <button>To cart</button>
-                    <p>{item?.description}</p>
+                    <article>
+                        <button>To cart</button>
+                        <p>{item?.description}</p>
+                    </article>
                 </div>
                 <Background />
             </li>

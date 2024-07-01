@@ -47,7 +47,7 @@ export const Items: ItemType[] = [
         previewImages: ['olympicstuff-fw.jpg'],
         price: 200,
         id: 'olympicstuff',
-        title: 'olympicstuff',
+        title: 'olympic-stuff tee',
         type: ItemTypes.Tee,
         description: '100% хлопок Плотность 240гр',
         sizes: ['s', 'm', 'l', 'xl']

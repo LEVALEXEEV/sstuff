@@ -4,14 +4,46 @@ import Header from "../components/header";
 import { Items } from "../data";
 import { useState } from "react";
 import Background from "../components/background";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { addItemToCart, removeItemFromCart } from "../store/actions";
+import { ItemType } from "../types/item";
+import { CartItemType } from "../types/cart-item";
+import { removeItemFromCartHandler } from "../const";
 
 function ItemPage(): JSX.Element {
     const [activeImg, setActiveImg] = useState(1);
+    const [isAdded, setAdded] = useState(false);
     const params = useParams();
     const item = Items.find((item) => item.id === params.id);
-    const device: boolean = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false);
+    const device: boolean = useAppSelector((state) => state.device);
+    const cart = useAppSelector((state) => state.cartItems);
+    const dispatch = useAppDispatch();
     const indexes = [];
     for (var index in item?.previewImages) {indexes.push(Number(index)+1);}
+
+    const addToCartHandler = (item: ItemType  | undefined) => {
+        if (item) {
+            const targetItem: CartItemType = 
+                {
+                    previewImages: item.previewImages,
+                    price: item.price,
+                    id: item.id,
+                    title: item.title,
+                    type: item.type,
+                    description: item.description,
+                    sizes: item.sizes,
+                    selectedSize: document.getElementById("size-select")?.value
+                }
+            if (isAdded){
+                dispatch(removeItemFromCart(removeItemFromCartHandler(targetItem, cart)));
+                setAdded(false);
+            }
+            else {
+                dispatch(addItemToCart(targetItem));
+                setAdded(true);
+            }
+        }
+    } 
     return (
       <>
         <Header backLink="/catalog"/>
@@ -51,7 +83,7 @@ function ItemPage(): JSX.Element {
                         }
                     </article>
                     <article>
-                        <button>To cart</button>
+                        <button onClick={() => addToCartHandler(item)}>{(!isAdded)?'Add':'Remove'}</button>
                         <p>{item?.description}</p>
                     </article>
                 </div>

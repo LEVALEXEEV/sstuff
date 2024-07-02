@@ -3,10 +3,11 @@ import Footer from "../components/footer";
 import { Videos } from "../data";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../hooks";
 
 
 function FrontPage(): JSX.Element {
-  const device: boolean = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false);
+  const device: boolean = useAppSelector((state) => state.device);
   const [activeVideo, setActiveVideo] = useState('1');
   const [isMute, setMute] = useState(false);
   const handleChangeVideo = (next: string) => {
@@ -17,8 +18,9 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap" style={(device) ? {height: '700px'} : {height: '900px'}}>
+      <section className="main__wrap" style={(device) ? {height: '600px'} : {height: '1000px'}}>
         <div className="main">
+          <h2 className="front-page__header">NEW COLLECTION</h2>
         <div className="container" style={(device) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
             <input type="radio" name="slider" id="item-1" onClick={() => handleChangeVideo('1')} defaultChecked/>
             <input type="radio" name="slider" id="item-2" onClick={() => handleChangeVideo('2')}/>

@@ -8,21 +8,23 @@ function CatalogPage(): JSX.Element {
       <>
         <Header />
         <section className="main__wrap-catalog main__wrap">
-            <ul className="catalog">
+            <div className="main">
                 <h2 className="catalog__header">CATALOG</h2>
-                {Items.map((item) => (
-                    <li key={item.id}>
-                        <Item
-                            previewImages={item.previewImages}
-                            price={item.price}
-                            id={item.id}
-                            title={item.title}
-                            type={item.type}
-                            description={""} sizes={[]}  
-                        />
-                    </li>    
-                ))}
-            </ul>
+                <ul className="catalog">
+                    {Items.map((item) => (
+                        <li key={item.id}>
+                            <Item
+                                previewImages={item.previewImages}
+                                price={item.price}
+                                id={item.id}
+                                title={item.title}
+                                type={item.type}
+                                description={""} sizes={[]}  
+                            />
+                        </li>    
+                    ))}
+                </ul>
+            </div>
         </section>
         <Footer/>
       </>

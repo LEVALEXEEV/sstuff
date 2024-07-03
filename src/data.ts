@@ -2,6 +2,7 @@ import { ItemTypes } from "./const";
 import { VideoType } from "./types/video";
 import { ItemType } from "./types/item";
 import { SizeTableType } from "./types/sizes-table";
+import { PromocodeType } from "./types/promocode";
 
 export const Videos: VideoType[] = [
     {
@@ -28,7 +29,7 @@ export const Items: ItemType[] = [
     {
         previewImages: ['phelps-hands-fw.jpg', 'phelps-hands-bc.jpg', 'sizes-tables/longsleeve-net.jpg'],
         price: 2000,
-        id: 'phelps-hands',
+        article: 'phelps-hands',
         title: 'phelps-hands',
         type: ItemTypes.Hoodie,
         description: '100% хлопок Плотность 240гр',
@@ -37,7 +38,7 @@ export const Items: ItemType[] = [
     {
         previewImages: ['pants1-fw.jpg'],
         price: 200,
-        id: 'shorts',
+        article: 'shorts',
         title: 'shorts',
         type: ItemTypes.Shorts,
         description: '100% хлопок Плотность 240гр',
@@ -46,7 +47,7 @@ export const Items: ItemType[] = [
     {
         previewImages: ['olympicstuff-fw.jpg'],
         price: 200,
-        id: 'olympicstuff',
+        article: 'olympicstuff',
         title: 'olympic-stuff tee',
         type: ItemTypes.Tee,
         description: '100% хлопок Плотность 240гр',
@@ -70,5 +71,16 @@ export const SizesTables: SizeTableType[] = [
     {
         previewImage: 'sizes-tables/shorts-net.jpg',
         type: ItemTypes.Shorts
+    }
+]
+
+export const Promocodes: PromocodeType[] = [
+    {
+        keyWord: 'JULESALE',
+        sale: 0.9
+    },
+    {
+        keyWord: 'STUFF',
+        sale: 0.8
     }
 ]

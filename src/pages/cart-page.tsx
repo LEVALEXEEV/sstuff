@@ -2,18 +2,34 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { removeItemFromCart } from "../store/actions";
-import { removeItemFromCartHandler } from "../const";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Promocodes } from "../data";
+import { removeItemFromArray } from "../utils";
 
 
 function CartPage(): JSX.Element {
-    const [shipOption, setShipOption] = useState({service: 'SDEK', type: 'point'})
-    const cartItems = useAppSelector(store => store.cartItems);
-    const device = useAppSelector(store => store.device);
     const dispatch = useAppDispatch();
-    const setShipOptionHandler = () => {
+    const cartItems = useAppSelector(store => store.cartItems);
     
+    const calculateTotalPrice = () => (cartItems.reduce((partialSum, a) => partialSum + a.price, 0));
+
+    const device = useAppSelector(store => store.device);
+    const [shipOption, setShipOption] = useState({service: 'SDEK', type: 'point'});
+    const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
+    const [promo, setPromo] = useState(1);
+
+    useEffect(() => {
+        setTotalPrice(calculateTotalPrice() * promo);
+    }, [cartItems, promo]);
+    
+    const handlePromoAppliance = () => {
+        const userCode = (document.getElementById('promocode') as HTMLInputElement).value;
+        const availableCode = Promocodes.filter(promocode => promocode.keyWord == userCode)
+        if (availableCode.length == 1) {
+            setPromo(availableCode[0].sale);
+        }
     }
+    
     return (
         <>
             <Header />
@@ -25,7 +41,7 @@ function CartPage(): JSX.Element {
                         (cartItems.length != 0)
                         ?
                             cartItems.map(item => (
-                                <article key={item.id}>
+                                <article key={item.article}>
                                     <div className="cart-item" >
                                         <div className="item-cart__preview">
                                             <img src={'img/items/'+item.previewImages[0]}/>
@@ -42,7 +58,7 @@ function CartPage(): JSX.Element {
                                             </div>
                                         </div>
                                         <div className="item-middle">{item.price}</div>
-                                        <div className="item-right"><img src="img/cross.svg" width={'25vmin'} onClick={()=>dispatch(removeItemFromCart(removeItemFromCartHandler(item, cartItems)))}/></div>
+                                        <div className="item-right"><img src="img/cross.svg" width={'25vmin'} onClick={() =>  dispatch(removeItemFromCart(removeItemFromArray(item, cartItems)))}/></div>
                                     </div>
                                     <span></span>
                                 </article>
@@ -55,13 +71,13 @@ function CartPage(): JSX.Element {
                         <div className="promocode__wrap">
                             <div className="promocode-input">
                                 <h3>Promocode</h3>
-                                <input type="text" name="promocode" id="promocode" minLength={4} maxLength={10}></input>
+                                <input type="text" name="promocode" id="promocode" minLength={4} maxLength={10} disabled={(promo != 1)}></input>
                             </div>
-                            <button>apply</button>
+                            <button onClick={() => handlePromoAppliance()} disabled={(promo != 1)}>apply</button>
                         </div>
                         <div className="total__wrap">
                             <h2>Total:</h2>
-                            <div className="total__price">{cartItems.reduce((partialSum, a) => partialSum + a.price, 0)}</div>
+                            <div className="total__price">{totalPrice}</div>
                         </div>
                     </div>
                     <h2 className="order__header long__header">ORDER INFORMATION</h2>

@@ -9,7 +9,7 @@ import { ItemTypes } from "../const";
 function SizesPage(): JSX.Element {
     const [activeImg, setActiveImg] = useState<string | undefined>(undefined);
     const showTable = (evt: React.MouseEvent) => {
-        switch(evt.target.classList[1]) {
+        switch((evt.target as HTMLInputElement).classList[1]) {
             case 'card__image__' + ItemTypes.Hoodie: 
                 setActiveImg('hoodie-net-full.jpg');
                 break;

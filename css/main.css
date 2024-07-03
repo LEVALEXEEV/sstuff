@@ -335,7 +335,6 @@ body {
   display: block;
   background: url(../img/background.png) center center no-repeat;
   background-size: cover;
-  padding-top: 1px;
   padding-bottom: 10vmin;
 }
 
@@ -346,7 +345,7 @@ body {
 }
 
 .catalog__header {
-  line-height: 2em;
+  line-height: 1em;
   font-size: 150%;
   margin: 2vmin auto;
   text-align: center;
@@ -805,7 +804,7 @@ body .boddy-img__hide {
   box-shadow: 0 0 100px 100px rgba(255, 255, 255, 0.8);
   
   .order__header {
-    line-height: 2em;
+    line-height: 1em;
     margin: 2vmin auto;
     text-align: center;
     width: 60%;
@@ -1064,10 +1063,47 @@ body .boddy-img__hide {
   transition: transform .3s ease-in-out;
 }
 
+@keyframes hide {
+  0% {
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes seek {
+  0% {
+    height: 0%;
+    opacity: 0;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+#ship_sdek_rider:checked ~ .adress__wrap .ship-apartments,
+#PR_rider:checked ~ .adress__wrap .ship-apartments {
+  animation-name: seek;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
 #ship_sdek_pick-up-point:checked ~ .adress__wrap .ship-apartments,
 #PR_pick-up-point:checked ~ .adress__wrap .ship-apartments {
-  display: none;
-  transform: translateY(-20px);
+  animation-name: hide;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+#ship_sdek_pick-up-point:checked ~ .adress__wrap .ship-index,
+#PR_pick-up-point:checked ~ .adress__wrap .ship-index {
+  transform: translateY(-100%);
 }
 
 #PR_pick-up-point:checked ~ .adress-label__wrap .rider__hint {
@@ -1120,7 +1156,7 @@ body .boddy-img__hide {
   line-height: 1em;
   letter-spacing: 0px;
   font-weight: 800;
-  color:rgba(0, 0, 0, .4);
+  color:rgba(0, 0, 0, 0.2);
 }
 
 .order__wrap__pc {
@@ -1153,7 +1189,7 @@ body .boddy-img__hide {
     letter-spacing: 30px;
     font-weight: 800;
     line-height: 150px;
-    color:rgba(0, 0, 0, .4);
+    color:rgba(0, 0, 0, 0.2);
   }
 
   .cart-item__list {
@@ -1275,6 +1311,7 @@ body .boddy-img__hide {
     }
     button {
       font-size: 150%;
+      margin: 35px 0px;
     }
     .ship-option__wrap {
       margin: 5px 10px;

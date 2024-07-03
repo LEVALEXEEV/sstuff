@@ -11,8 +11,8 @@ function FrontPage(): JSX.Element {
   const [activeVideo, setActiveVideo] = useState('1');
   const [isMute, setMute] = useState(false);
   const handleChangeVideo = (next: string) => {
-    document.getElementById("video-" + activeVideo)?.pause();
-    document.getElementById("video-" + next)?.play();
+    (document.getElementById("video-" + activeVideo) as HTMLVideoElement).pause();
+    (document.getElementById("video-" + next) as HTMLVideoElement).play();
     setActiveVideo(next);
   };
   return (

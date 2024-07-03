@@ -3,7 +3,7 @@ import { ItemTypes } from "../const"
 export type ItemType = {
     previewImages: string[]
     price: number
-    id: string
+    article: string
     title: string
     type: ItemTypes
     description: string

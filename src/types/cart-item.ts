@@ -1,12 +1,7 @@
-import { ItemTypes } from "../const"
+import { ItemType } from "./item"
 
-export type CartItemType = {
-    previewImages: string[]
-    price: number
-    id: string
-    title: string
-    type: ItemTypes
-    description: string
-    sizes: string[]
+
+export type CartItemType = ItemType & {
     selectedSize: string | undefined
+    id: string
 }

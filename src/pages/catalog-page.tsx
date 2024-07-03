@@ -12,11 +12,11 @@ function CatalogPage(): JSX.Element {
                 <h2 className="catalog__header">CATALOG</h2>
                 <ul className="catalog">
                     {Items.map((item) => (
-                        <li key={item.id}>
+                        <li key={item.article}>
                             <Item
                                 previewImages={item.previewImages}
                                 price={item.price}
-                                id={item.id}
+                                article={item.article}
                                 title={item.title}
                                 type={item.type}
                                 description={""} sizes={[]}  

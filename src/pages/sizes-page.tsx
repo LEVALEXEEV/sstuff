@@ -5,6 +5,7 @@ import Header from "../components/header";
 import SizesTable from "../components/sizes-table";
 import { SizesTables } from "../data";
 import { ItemTypes } from "../const";
+import Background from "../components/background";
 
 function SizesPage(): JSX.Element {
     const [activeImg, setActiveImg] = useState<string | undefined>(undefined);
@@ -47,6 +48,7 @@ function SizesPage(): JSX.Element {
                         </li>    
                     ))}
                 </ul>
+                <Background firstColor={"rgba(255,255,255"} secondColor={"rgba(211,211,211"} thirdColor={"rgba(181,181,181"} />
             </section>
             <Footer/>
         </div>

@@ -1,17 +1,18 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { removeItemFromCart } from "../store/actions";
+import { setCart } from "../store/actions";
 import { useEffect, useState } from "react";
 import { Promocodes } from "../data";
-import { removeItemFromArray } from "../utils";
+import { findItemInArray, removeItemFromArray } from "../utils";
+import Background from "../components/background";
 
 
 function CartPage(): JSX.Element {
     const dispatch = useAppDispatch();
-    const cartItems = useAppSelector(store => store.cartItems);
-    
-    const calculateTotalPrice = () => (cartItems.reduce((partialSum, a) => partialSum + a.price, 0));
+    const cart = useAppSelector(store => store.cartItems);
+
+    const calculateTotalPrice = () => (cart.reduce((partialSum, a) => partialSum + a.price, 0));
 
     const device = useAppSelector(store => store.device);
     const [shipOption, setShipOption] = useState({service: 'SDEK', type: 'point'});
@@ -20,7 +21,7 @@ function CartPage(): JSX.Element {
 
     useEffect(() => {
         setTotalPrice(calculateTotalPrice() * promo);
-    }, [cartItems, promo]);
+    }, [cart, promo]);
     
     const handlePromoAppliance = () => {
         const userCode = (document.getElementById('promocode') as HTMLInputElement).value;
@@ -28,6 +29,14 @@ function CartPage(): JSX.Element {
         if (availableCode.length == 1) {
             setPromo(availableCode[0].sale);
         }
+    }
+
+    const handleSizeChange = (target: HTMLSelectElement) => {
+        const id = target.classList[0];
+        const newItem = {...findItemInArray(id, cart)[0], selectedSize: target.value};
+        const newCart = removeItemFromArray(id, cart);
+        newCart.push(newItem);
+        dispatch(setCart(newCart));
     }
     
     return (
@@ -38,10 +47,10 @@ function CartPage(): JSX.Element {
                     <h2 className="order__header">CART</h2>
                     <div className="cart-item__list">
                         {
-                        (cartItems.length != 0)
+                        (cart.length != 0)
                         ?
-                            cartItems.map(item => (
-                                <article key={item.article}>
+                            cart.map(item => (
+                                <article key={item.id}>
                                     <div className="cart-item" >
                                         <div className="item-cart__preview">
                                             <img src={'img/items/'+item.previewImages[0]}/>
@@ -49,8 +58,8 @@ function CartPage(): JSX.Element {
                                         <div className="item-left">
                                             <h3>{item.title}</h3>
                                             <div className="cart-size-selector__wrap">
-                                                <label htmlFor="size-select">Size</label>
-                                                <select name="drop-down" id="size-select" defaultValue={item.selectedSize}>
+                                                <label htmlFor={'size-select'+item.id}>Size</label>
+                                                <select className = "size-select" name="drop-down" id={'size-select'+item.id} defaultValue={item.selectedSize} onChange={(evt) => handleSizeChange(evt.target)}>
                                                     {item.sizes.map(size => (
                                                         <option value={size} key={size} >{size}</option>
                                                     ))}
@@ -58,7 +67,7 @@ function CartPage(): JSX.Element {
                                             </div>
                                         </div>
                                         <div className="item-middle">{item.price}</div>
-                                        <div className="item-right"><img src="img/cross.svg" width={'25vmin'} onClick={() =>  dispatch(removeItemFromCart(removeItemFromArray(item, cartItems)))}/></div>
+                                        <div className="item-right"><img src="img/cross.svg" width={'25vmin'} onClick={() => dispatch(setCart(removeItemFromArray(item.id, cart)))}/></div>
                                     </div>
                                     <span></span>
                                 </article>
@@ -146,11 +155,12 @@ function CartPage(): JSX.Element {
                                         <input type="text" name="index" id="index" required/> 
                                     </div>
                                 </div>
-                                <button type="submit" disabled={(cartItems.length == 0)}>Отправить</button>
+                                <button type="submit" disabled={(cart.length == 0)}>Отправить</button>
                             </form>
                         </div>
                     </div>
                 </div>
+                <Background firstColor={"rgba(255,255,255"} secondColor={"rgba(211,211,211"} thirdColor={"rgba(181,181,181"} />
             </section>
             <Footer/>
         </>

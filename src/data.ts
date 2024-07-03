@@ -76,7 +76,7 @@ export const SizesTables: SizeTableType[] = [
 
 export const Promocodes: PromocodeType[] = [
     {
-        keyWord: 'JULESALE',
+        keyWord: 'JULYSALE',
         sale: 0.9
     },
     {

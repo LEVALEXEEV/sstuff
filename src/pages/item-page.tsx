@@ -5,7 +5,7 @@ import { Items } from "../data";
 import { useState } from "react";
 import Background from "../components/background";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { addItemToCart, removeItemFromCart } from "../store/actions";
+import { setCart } from "../store/actions";
 import { ItemType } from "../types/item";
 import { CartItemType } from "../types/cart-item";
 import { getHash, removeItemFromArray } from "../utils";
@@ -37,11 +37,14 @@ function ItemPage(): JSX.Element {
                     id: item.article + '_' + getHash(JSON.stringify(item))
                 }
             if (isAdded){
-                dispatch(removeItemFromCart(removeItemFromArray(targetItem, cart)));
+                dispatch(setCart(removeItemFromArray(targetItem.id, cart)));
                 setAdded(false);
             }
             else {
-                dispatch(addItemToCart(targetItem));
+                const newCart = new Array<CartItemType>;
+                cart.map((item) => newCart.push(item))
+                newCart.push(targetItem);
+                dispatch(setCart(newCart));
                 setAdded(true);
             }
         }
@@ -76,7 +79,7 @@ function ItemPage(): JSX.Element {
                             ? 
                                 <div className="size-selector__wrap">
                                     <label htmlFor="size-select">Size</label>
-                                    <select name="drop-down" id="size-select">
+                                    <select className = "size-select" name="drop-down" id="size-select">
                                         {item?.sizes.map((size) => (<option value={size} key={size}>{size}</option>))}
                                     </select>
                                 </div>
@@ -89,7 +92,7 @@ function ItemPage(): JSX.Element {
                         <p>{item?.description}</p>
                     </article>
                 </div>
-                <Background />
+                <Background firstColor={"rgba(100,0,255"} secondColor={"rgba(100,130,255"} thirdColor={"rgba(0,0,255"} />
             </li>
           </ul>
         </section>

@@ -1,6 +1,7 @@
 import {createReducer} from '@reduxjs/toolkit';
-import { addItemToCart, clearCart, removeItemFromCart, setDevice } from './actions';
+import { clearCart, setCart, setDevice } from './actions';
 import { CartItemType } from '../types/cart-item';
+import { setCookie } from '../utils';
 
 type StateType = {
   cartItems: CartItemType[]
@@ -15,16 +16,15 @@ const initialState: StateType = {
 const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(setDevice, (state, action) => {
-        state.device = action.payload;
+      state.device = action.payload;
     })
-    .addCase(addItemToCart, (state, action) => {
-      state.cartItems.push(action.payload);
-    })
-    .addCase(removeItemFromCart, (state, action) => {
-      state.cartItems = action.payload;  
+    .addCase(setCart, (state, action) => {
+      state.cartItems = action.payload.sort((a, b) => (a.id < b.id ? -1 : 1));  
+      setCookie('cart', JSON.stringify(state.cartItems), 7);
     })
     .addCase(clearCart, (state) => {
-        state.cartItems = [];
+      state.cartItems = [];
+      setCookie('cart', JSON.stringify(state.cartItems), 7);
     })
 });
 

@@ -4,6 +4,7 @@ import { Videos } from "../data";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../hooks";
+import Background from "../components/background";
 
 
 function FrontPage(): JSX.Element {
@@ -18,7 +19,7 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap" style={(device) ? {height: '600px'} : {height: '1000px'}}>
+      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '1000px'}}>
         <div className="main">
           <h2 className="front-page__header">NEW COLLECTION</h2>
         <div className="container" style={(device) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
@@ -60,6 +61,7 @@ function FrontPage(): JSX.Element {
             </div>
           </div>
         </div>
+        <Background firstColor={"rgba(255,255,255"} secondColor={"rgba(211,211,211"} thirdColor={"rgba(181,181,181"} />
       </section>
       <Footer/>
     </>

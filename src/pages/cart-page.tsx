@@ -32,7 +32,7 @@ function CartPage(): JSX.Element {
     }
 
     const handleSizeChange = (target: HTMLSelectElement) => {
-        const id = target.classList[0];
+        const id = target.classList[1];
         const newItem = {...findItemInArray(id, cart)[0], selectedSize: target.value};
         const newCart = removeItemFromArray(id, cart);
         newCart.push(newItem);
@@ -50,7 +50,7 @@ function CartPage(): JSX.Element {
                         (cart.length != 0)
                         ?
                             cart.map(item => (
-                                <article key={item.id}>
+                                <div className="cart-item__wrapper" key={item.id}>
                                     <div className="cart-item" >
                                         <div className="item-cart__preview">
                                             <img src={'img/items/'+item.previewImages[0]}/>
@@ -59,7 +59,7 @@ function CartPage(): JSX.Element {
                                             <h3>{item.title}</h3>
                                             <div className="cart-size-selector__wrap">
                                                 <label htmlFor={'size-select'+item.id}>Size</label>
-                                                <select className = "size-select" name="drop-down" id={'size-select'+item.id} defaultValue={item.selectedSize} onChange={(evt) => handleSizeChange(evt.target)}>
+                                                <select className = {'size-select '+item.id} name="drop-down" id={'size-select'+item.id} defaultValue={item.selectedSize} onChange={(evt) => handleSizeChange(evt.target)}>
                                                     {item.sizes.map(size => (
                                                         <option value={size} key={size} >{size}</option>
                                                     ))}
@@ -70,7 +70,7 @@ function CartPage(): JSX.Element {
                                         <div className="item-right"><img src="img/cross.svg" width={'25vmin'} onClick={() => dispatch(setCart(removeItemFromArray(item.id, cart)))}/></div>
                                     </div>
                                     <span></span>
-                                </article>
+                                </div>
                             ))
                         :
                             <div className="empty-cart"><i>EMPTY</i></div>

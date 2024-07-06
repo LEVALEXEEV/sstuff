@@ -2,10 +2,9 @@
   "name": "sstuff",
   "version": "0.1.0",
   "type": "module",
-  "homepage": "https://LEVALEXEEV.github.io/sstuff",
   "dependencies": {
     "@reduxjs/toolkit": "1.9.7",
-    "axios": "1.5.1",
+    "axios": "^1.7.2",
     "classnames": "2.3.2",
     "history": "5.3.0",
     "http-status-codes": "2.3.0",
@@ -18,8 +17,6 @@
     "react-toastify": "^10.0.5"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx",
@@ -66,7 +63,7 @@
     "faker": "5.5.3",
     "jsdom": "22.1.0",
     "typescript": "5.2.2",
-    "vite": "4.4.11",
+    "vite": "^4.5.3",
     "vitest": "0.34.6"
   }
 }

@@ -31,7 +31,7 @@ function FrontPage(): JSX.Element {
               {Videos.map((video) => (
                 <label className="card" key={video.id} htmlFor={"item-"+video.id} id={"video-label-"+video.id}>
                   <div className="video__mask">
-                    <video id={'video-' + video.id} autoPlay={video.id == '1'} preload={video.id == '1' ? 'auto' : 'metadata'} muted={isMute} height={"100%"} width={"100%"}>
+                    <video id={'video-' + video.id} playsInline={true} autoPlay={video.id == '1'} controls={false} preload={'auto'} muted={isMute} height={"100%"} width={"100%"}>
                       <source src={'/sstuff/' + video.src} />
                     </video>
                     <label className="mute" htmlFor="mute-button">

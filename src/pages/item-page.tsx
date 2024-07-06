@@ -9,7 +9,7 @@ import { setCart } from "../store/actions";
 import { ItemType } from "../types/item";
 import { CartItemType } from "../types/cart-item";
 import { getHash, removeItemFromArray } from "../utils";
-import Slider from "../components/slider";
+import Slider from "../components/slider2";
 
 
 function ItemPage(): JSX.Element {
@@ -57,7 +57,7 @@ function ItemPage(): JSX.Element {
     } 
     return (
       <>
-        <Header backLink="/catalog"/>
+        <Header backLink="/sstuff/catalog"/>
         <section className="main__wrap main__item__wrap">
         <div className="item">
             <Slider item={item}/>

@@ -36,7 +36,7 @@ export const Items: ItemType[] = [
         sizes: ['s', 'm', 'l', 'xl']
     },
     {
-        previewImages: ['pants1-fw.jpg'],
+        previewImages: ['pants1-fw.jpg', 'phelps-hands-fw.jpg', 'phelps-hands-bc.jpg'],
         price: 200,
         article: 'shorts',
         title: 'shorts',

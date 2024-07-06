@@ -32,7 +32,7 @@ function FrontPage(): JSX.Element {
                 <label className="card" key={video.id} htmlFor={"item-"+video.id} id={"video-label-"+video.id}>
                   <div className="video__mask">
                     <video id={'video-' + video.id} autoPlay={video.id == '1'} preload={video.id == '1' ? 'auto' : 'metadata'} muted={isMute} height={"100%"} width={"100%"}>
-                      <source src={video.src} />
+                      <source src={'/sstuff/' + video.src} />
                     </video>
                     <label className="mute" htmlFor="mute-button">
                       <div className="img__mute" 
@@ -41,7 +41,7 @@ function FrontPage(): JSX.Element {
                           : {opacity: '0', backgroundColor: 'none'}
                         }
                       >
-                        <img  src={(isMute) ? "img/mute-icon-on.svg" : "img/mute-icon-off.svg"} width="16px" />
+                        <img  src={(isMute) ? "/sstuff/img/mute-icon-on.svg" : "/sstuff/img/mute-icon-off.svg"} width="16px" />
                       </div>
                     </label>
                   </div>

@@ -9,19 +9,19 @@ export const Videos: VideoType[] = [
         src: "videos/prev1.MOV",
         id: '1',
         description: 'collection',
-        link: '/catalog'
+        link: 'catalog'
     },
     {
         src: "videos/prev2.MOV",
         id: '2',
         description: 'stuff',
-        link: '/catalog'
+        link: 'catalog'
     },
     {
         src: "videos/prev3.MOV",
         id: '3',
         description: 'cup',
-        link: '/catalog'
+        link: 'catalog'
     },
 ]
 

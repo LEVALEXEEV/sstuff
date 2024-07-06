@@ -11,8 +11,8 @@ function Header({backLink}: HeaderProps): JSX.Element {
       <div className='header__wrap__div'>
         <header className="header">
           <div className='backlink__div'>
-            <Link to="/">
-              <img src="img/icon.jpg" width={80}/>
+            <Link to="/sstuff">
+              <img src="/sstuff/img/icon.jpg" width={80}/>
             </Link>
             {
               (backLink) 

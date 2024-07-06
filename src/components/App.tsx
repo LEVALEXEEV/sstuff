@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        <Route path="sstuff">
           <Route index element={<FrontPage/>} />
           <Route path="catalog" element={<CatalogPage />} />
           <Route path="sizes" element={<SizesPage />} />

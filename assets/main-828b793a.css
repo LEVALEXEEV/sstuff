@@ -676,11 +676,15 @@ margin: 0px -3%;
     }
   }
 
+  .slide__container {
+    margin: auto;
+  }
+
   .swiper-pagination {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
+
     position: absolute;
     bottom: 0;
   }

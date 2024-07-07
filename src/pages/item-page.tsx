@@ -9,7 +9,7 @@ import { setCart } from "../store/actions";
 import { ItemType } from "../types/item";
 import { CartItemType } from "../types/cart-item";
 import { getHash, removeItemFromArray } from "../utils";
-import Slider from "../components/slider2";
+import Slider from "../components/slider";
 
 
 function ItemPage(): JSX.Element {

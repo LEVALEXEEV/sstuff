@@ -1,16 +1,18 @@
 import {createReducer} from '@reduxjs/toolkit';
-import { clearCart, setCart, setDevice } from './actions';
+import { clearCart, setCart, setDevice, setTotalPrice } from './actions';
 import { CartItemType } from '../types/cart-item';
 import { setCookie } from '../utils';
 
 type StateType = {
   cartItems: CartItemType[]
   device: boolean
+  totalPrice: number
 }
 
 const initialState: StateType = {
   cartItems: [],
-  device: true
+  device: true,
+  totalPrice: 0
 };
 
 const reducer = createReducer(initialState, (builder) => {
@@ -21,6 +23,9 @@ const reducer = createReducer(initialState, (builder) => {
     .addCase(setCart, (state, action) => {
       state.cartItems = action.payload.sort((a, b) => (a.id < b.id ? -1 : 1));  
       setCookie('cart', JSON.stringify(state.cartItems), 7);
+    })
+    .addCase(setTotalPrice, (state, action) => {
+      state.totalPrice = action.payload;  
     })
     .addCase(clearCart, (state) => {
       state.cartItems = [];

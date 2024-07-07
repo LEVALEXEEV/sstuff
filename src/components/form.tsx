@@ -46,7 +46,9 @@ function Form(): JSX.Element {
     }
 
     return(
-        <form id='user-form' onSubmit={(evt) => handleSubmit(evt)} >
+        <>
+        <iframe name="votar" style={{display: 'none'}}></iframe>
+        <form id='user-form' onSubmit={(evt) => handleSubmit(evt)} target="votar">
             <p>
                 <label htmlFor="name">Name:</label>
                 <input className="name" type="text" name="name" id="name" placeholder="Ivan Ivanov" required/>
@@ -115,6 +117,7 @@ function Form(): JSX.Element {
             </div>
             <button type="submit" disabled={(cart.length == 0 || isLoading)}>Отправить</button>
         </form>
+        </>
     )
 }
 

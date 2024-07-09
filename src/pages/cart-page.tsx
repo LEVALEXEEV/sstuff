@@ -53,7 +53,7 @@ function CartPage(): JSX.Element {
                                 <div className="cart-item__wrapper" key={item.id}>
                                     <div className="cart-item" >
                                         <div className="item-cart__preview">
-                                            <img src={'/sstuff/img/items/'+item.previewImages[0]}/>
+                                            <img src={'/sstuff/img/items/'+item.previewImages[0]} style={{maxWidth: '60px'}}/>
                                         </div>
                                         <div className="item-left">
                                             <h3>{item.title}</h3>

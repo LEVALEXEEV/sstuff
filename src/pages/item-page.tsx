@@ -14,7 +14,6 @@ import Slider from "../components/slider";
 
 function ItemPage(): JSX.Element {
     const [isAdded, setAdded] = useState(false);
-    
     const params = useParams();
     const item = Items.find((item) => item.article === params.article);
     const [itemID, setItemID] = useState('');

@@ -19,7 +19,7 @@ function Form(): JSX.Element {
             setIsLoading(true);
             const response = await sendOrder(cart, form, shipOption, totalPrice);
             if (response == 200) {
-                toast.info('Заказ зарегисториован! По поводу оплаты с Вами свяжется администратор.', {
+                toast.info('Заказ зарегисториован! Скоро с Вами свяжется администратор.', {
                     position: 'top-center',
                     bodyStyle: {
                         fontFamily: '"Montserrat", sans-serif'

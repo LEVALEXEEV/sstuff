@@ -89,7 +89,7 @@ function CartPage(): JSX.Element {
                             <div className="total__price">{totalPrice}</div>
                         </div>
                     </div>
-                    <h2 className="order__header long__header">ORDER INFORMATION</h2>
+                    <h2 className="order__header long__header">SHIP INFORMATION</h2>
                     <div className="order-inf__wrap" style={(device)?{minWidth: '100%'}:{minWidth: '150%'}}>
                         <div className="form__wrap">
                             <Form />

@@ -5,12 +5,25 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../hooks";
 import Background from "../components/background";
+import { useSwipe } from "../hooks/useSwipe";
+import { getNextVideo } from "../utils";
 
 
 function FrontPage(): JSX.Element {
   const device: boolean = useAppSelector((state) => state.device);
   const [activeVideo, setActiveVideo] = useState('1');
   const [isMute, setMute] = useState(false);
+  const rightSwipeHandler = () => {
+    const nextVideo = getNextVideo('r', activeVideo);
+    (document.getElementById(`item-${nextVideo}`) as HTMLInputElement).checked = true;
+    handleChangeVideo(nextVideo);
+  }
+  const leftSwipeHandler = () => {
+    const nextVideo = getNextVideo('l', activeVideo);
+    (document.getElementById(`item-${nextVideo}`) as HTMLInputElement).checked = true;
+    handleChangeVideo(nextVideo);
+  }
+  useSwipe({left: leftSwipeHandler, right: rightSwipeHandler});
   const handleChangeVideo = (next: string) => {
     (document.getElementById("video-" + activeVideo) as HTMLVideoElement).pause();
     (document.getElementById("video-" + next) as HTMLVideoElement).play();
@@ -19,15 +32,15 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '1000px'}}>
+      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '940px'}}>
         <div className="main">
           <h2 className="front-page__header">NEW COLLECTION</h2>
         <div className="container" style={(device) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
-            <input type="radio" name="slider" id="item-1" onClick={() => handleChangeVideo('1')} defaultChecked/>
-            <input type="radio" name="slider" id="item-2" onClick={() => handleChangeVideo('2')}/>
-            <input type="radio" name="slider" id="item-3" onClick={() => handleChangeVideo('3')}/>
+            <input type="radio" name="slider" id="item-1" onChange={() => handleChangeVideo('1')} defaultChecked/>
+            <input type="radio" name="slider" id="item-2" onChange={() => handleChangeVideo('2')}/>
+            <input type="radio" name="slider" id="item-3" onChange={() => handleChangeVideo('3')}/>
             <input type="checkbox" role="switch" id="mute-button" onClick={() => setMute(!isMute)}/>
-            <div className="cards" >
+            <div className="cards" id="cards">
               {Videos.map((video) => (
                 <label className="card" key={video.id} htmlFor={"item-"+video.id} id={"video-label-"+video.id}>
                   <div className="video__mask">

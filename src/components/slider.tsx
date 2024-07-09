@@ -27,7 +27,7 @@ function Slider({item}: SliderProps) {
                 pagination = {{
                     clickable: true,
                     renderBullet: function(index, className) {
-                        return '<div class="'+className+'" style="width:'+controlsSize+'; height:'+controlsSize+'"><img class="pagination-bullet" src='+ path + item?.previewImages[index]+' style="width:'+controlsSize+'"/></div>';
+                        return `<div class="${className}" style="width:${controlsSize}; height:${controlsSize}"><img class="pagination-bullet" src=${path + item?.previewImages[index]} style="width:${controlsSize}"/></div>`;
                     }
                 }}
             >

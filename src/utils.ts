@@ -35,3 +35,30 @@ export function getCookie(name: string) {
 export function eraseCookie(name: string) {
     document.cookie = name+'=; Max-Age=-99999999;';  
 }
+
+export const getNextVideo = (direction: string, current: string) => {
+    if (direction == 'r') {
+        switch ( current ) {
+            case '1':
+                return '2';
+            case '2':
+                return '3';
+            case '3':
+                return '1';
+            default: 
+                return '0';
+         }
+    }
+    else {
+        switch ( current ) {
+            case '1':
+                return '3';
+            case '2':
+                return '1';
+            case '3':
+                return '2';
+            default: 
+                return '0';
+         }
+    }
+}

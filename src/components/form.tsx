@@ -4,6 +4,7 @@ import { sendOrder } from "../api/send-order";
 import { toast } from 'react-toastify';
 import { setCart, setTotalPrice } from "../store/actions";
 import { useForm } from "react-hook-form";
+import { StatusCodeMapping } from "../api";
 
 function Form(): JSX.Element {
     const cart = useAppSelector(store => store.cartItems);
@@ -19,27 +20,33 @@ function Form(): JSX.Element {
             setIsLoading(true);
             const response = await sendOrder(cart, form, shipOption, totalPrice);
             if (response == 200) {
-                toast.info('Заказ зарегисториован! Скоро с Вами свяжется администратор.', {
-                    position: 'top-center',
+                toast.success(`Заказ оформлен!\n Для оплаты с Вами скоро свяжется администратор.`, {
                     bodyStyle: {
-                        fontFamily: '"Montserrat", sans-serif'
+                        fontFamily: '"Montserrat", sans-serif',
+                        fontSize: '20px'
                     },
                     theme: 'dark'
                 });
                 dispatch(setCart([]));
                 dispatch(setTotalPrice(0));
             }
-            else toast.warn(response, {
-                position: 'top-center',
+            else toast.warn(StatusCodeMapping[response], {
                 bodyStyle: {
-                    fontFamily: '"Montserrat", sans-serif'
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: '20px'
                 },
                 theme: 'dark'
             });
                 
         }
         catch(e) {
-            
+            toast.error('Unknown error', {
+                bodyStyle: {
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: '20px'
+                },
+                theme: 'dark'
+            });
         } finally {
             setIsLoading(false);
         }
@@ -55,7 +62,7 @@ function Form(): JSX.Element {
                     {...register("name", {
                         required: "Required",
                         pattern: {
-                            value: /^([А-ЯЁа-яё]{2,15}\s{0,3}){1,3}$||([A-Za-z]{2,15}\s{0,3}){1,3}$/,
+                            value: /^([А-ЯЁа-яё]{2,15}\s{0,3}){2,3}$|([A-Za-z]{2,15}\s{0,3}){2,3}$/,
                             message: "Ошибка в поле имени"
                         }
                     })}
@@ -90,6 +97,10 @@ function Form(): JSX.Element {
                 <input className="network" type="text" id="network" autoComplete="off" placeholder="@sstuff" 
                     {...register("network", {
                         required: "Required",
+                        pattern: {
+                            value: /^[^А-ЯЁа-яё]+$/i,
+                            message: "Ошибка в поле телеграма"
+                        }
                     })}
                 />
             </p>
@@ -118,7 +129,7 @@ function Form(): JSX.Element {
                 <label className="article__label">Address:</label>
                 <div className="user-hints__ship">    
                     <h4 className="pick-up-point__hint">введите адрес пункта выдачи</h4>
-                    <h4 className="rider__hint">введите адрес проживания</h4>
+                    <h4 className="rider__hint">введите адрес доставки</h4>
                 </div>
             </div>
             <div className="adress__wrap">
@@ -128,7 +139,7 @@ function Form(): JSX.Element {
                         {...register("city", {
                             required: "Required",
                             pattern: {
-                                value: /^([А-ЯЁа-яё]{2,20}\s{0,3}){1,5}$ || ([A-Za-z]{2,20}\s{0,3}){1,5}$/i,
+                                value: /^([А-ЯЁа-яё\.]{2,20}\s{0,3}){1,5}$|([A-Za-z\.]{2,20}\s{0,3}){1,5}$/i,
                                 message: "Ошибка в поле города"
                             }
                         })}
@@ -140,7 +151,7 @@ function Form(): JSX.Element {
                         {...register("street", {
                             required: "Required",
                             pattern: {
-                                value: /^([А-ЯЁа-яё]{2,20}\s{0,3}){1,5}$ || ([A-Za-z]{2,20}\s{0,3}){1,5}$/i,
+                                value: /^([А-ЯЁа-яё\.]{2,20}\s{0,3}){1,5}$|([A-Za-z\.]{2,20}\s{0,3}){1,5}$/i,
                                 message: "Ошибка в поле улицы"
                             }
                         })}

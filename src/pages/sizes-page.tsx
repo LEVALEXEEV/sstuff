@@ -38,6 +38,7 @@ function SizesPage(): JSX.Element {
         <div className="sizes-page">
             <Header />
             <section className="main__wrap-sizes">
+                <h2 className="page__header sizes-page__header">SIZES TABLES</h2>
                 <ul className="catalog">
                     {SizesTables.map((item) => (
                         <li key={item.type} onClick={(evt) => {showTable(evt)}}>

@@ -44,7 +44,7 @@ function CartPage(): JSX.Element {
             <Header />
             <section className="main__wrap cart__main" >
                 <div className={(device)?"order__wrap":"order__wrap__pc"}>
-                    <h2 className="order__header">CART</h2>
+                    <h2 className="page__header order__header">CART</h2>
                     <div className="cart-item__list">
                         {
                         (cart.length != 0)
@@ -53,7 +53,7 @@ function CartPage(): JSX.Element {
                                 <div className="cart-item__wrapper" key={item.id}>
                                     <div className="cart-item" >
                                         <div className="item-cart__preview">
-                                            <img src={'/sstuff/img/items/'+item.previewImages[0]} style={{maxWidth: '60px'}}/>
+                                            <img src={'/sstuff/img/items/'+item.previewImages[0]}/>
                                         </div>
                                         <div className="item-left">
                                             <h3>{item.title}</h3>

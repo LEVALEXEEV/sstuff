@@ -5,9 +5,9 @@ export const CHAT_ID = '-1002186631492';
 
 export const USER_DATA_PARTS = ['name', 'email', 'phone', 'network', 'city', 'street', 'house', 'apartments', 'index'];
 
-export const StatusCodeMapping: Record<number, boolean> = {
-    [StatusCodes.OK]: true,
-    [StatusCodes.BAD_REQUEST]: true,
-    [StatusCodes.FORBIDDEN]: true,
-    [StatusCodes.NOT_FOUND]: true
+export const StatusCodeMapping: Record<number, string> = {
+    [StatusCodes.OK]: 'OK',
+    [StatusCodes.BAD_REQUEST]: 'BAD_REQUEST',
+    [StatusCodes.FORBIDDEN]: 'FORBIDDEN',
+    [StatusCodes.NOT_FOUND]: 'NOT_FOUND'
 };

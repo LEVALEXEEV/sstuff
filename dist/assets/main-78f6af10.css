@@ -900,6 +900,7 @@ width: 100%;
     background-color: rgb(73, 73, 73);
   }
 }
+}
 
 .total__wrap {
   width: 100%;
@@ -919,7 +920,6 @@ width: 100%;
     font-size: 40px;
   }
 }
-}
 
 .order__wrap .total__price {
 font-size: 8vmin;
@@ -933,7 +933,7 @@ text-align: center;
   display: inline-block;
   text-align: left;
   min-width: 350px;
-  width: 50%;
+  width: 65%;
   p {
     align-items: center;
     display: flex;
@@ -977,19 +977,18 @@ text-align: center;
 }
 
 .adress__wrap {
-  text-align: right;
-  display: inline-grid;
-  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
   .adress__part {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     transition: transform .5s ease-in-out;
     input {
-      width: 14em;
+      width: 50%;
     }
     label {
-      margin: 5px;
+      margin-left: 6%;
       font-size: 4vmin;
       font-weight: 400;
     }
@@ -1126,7 +1125,7 @@ height: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;
-padding: 10px 10px;
+padding: 10px 0px;
 margin: auto;
 border-radius: 15px;
 

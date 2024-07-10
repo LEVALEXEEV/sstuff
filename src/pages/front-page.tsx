@@ -32,9 +32,9 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '940px'}}>
+      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '950px'}}>
         <div className="main">
-          <h2 className="front-page__header">NEW COLLECTION</h2>
+        <h2 className="page__header front-page__header">NEW STUFF</h2>
         <div className="container" style={(device) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
             <input type="radio" name="slider" id="item-1" onChange={() => handleChangeVideo('1')} defaultChecked/>
             <input type="radio" name="slider" id="item-2" onChange={() => handleChangeVideo('2')}/>

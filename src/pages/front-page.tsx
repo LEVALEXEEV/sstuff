@@ -16,17 +16,19 @@ function FrontPage(): JSX.Element {
   const [isMute, setMute] = useState(false);
   const [allowSwipe, setAllowSwipe] = useState(false);
   useEffect(() => {
-    toast.info('Приложение использует файлы cookies', {
-      position: 'bottom-center',
-      bodyStyle: {
-          fontFamily: '"Montserrat", sans-serif',
-          fontSize: '20px'
-      },
-      theme: 'dark',
-      onClose() {
-        setAllowSwipe(true);
-      },
-    });
+    if (!allowSwipe) {
+      toast.info('Приложение использует файлы cookies', {
+        position: 'bottom-center',
+        bodyStyle: {
+            fontFamily: '"Montserrat", sans-serif',
+            fontSize: '20px'
+        },
+        theme: 'dark',
+        onClose() {
+          setAllowSwipe(true);
+        },
+      });
+    }
   }, []);
   const rightSwipeHandler = () => {
     const nextVideo = getNextVideo('r', activeVideo);

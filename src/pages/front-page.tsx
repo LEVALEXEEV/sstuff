@@ -34,7 +34,7 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '950px'}}>
+      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '80vh', minHeight: '950px'}}>
         <div className="main">
         <h2 className="page__header front-page__header">NEW STUFF</h2>
         <div className="container" style={(device) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>

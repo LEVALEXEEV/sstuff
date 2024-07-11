@@ -655,6 +655,10 @@ width: 100%;
 max-width: 500px;
 aspect-ratio: 1/1;
 z-index: 2;
+align-content: center;
+.swiper {
+  height: 100%;
+}
 }
 
 .item-img-slider__wrap, .item-description__wrap {
@@ -686,6 +690,7 @@ margin: 0px -3%;
 
   .slide__container {
     margin: auto;
+    aspect-ratio: 1/1;
   }
 
   .swiper-pagination {

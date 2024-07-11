@@ -8,7 +8,6 @@ font-family: "Montserrat", sans-serif;
 font-optical-sizing: auto;
 line-height: 1.5;
 font-size: xx-large;
-min-width: 390px;
 }
 
 .header__wrap {
@@ -554,6 +553,7 @@ display: flex;
 justify-content: center;
 
 .item {
+  position: relative;
   padding-top: 0.7em;
   padding-bottom: 30px;
   align-self: center;
@@ -655,6 +655,10 @@ width: 100%;
 max-width: 500px;
 aspect-ratio: 1/1;
 z-index: 2;
+align-content: center;
+.swiper {
+  height: 100%;
+}
 }
 
 .item-img-slider__wrap, .item-description__wrap {
@@ -686,6 +690,7 @@ margin: 0px -3%;
 
   .slide__container {
     margin: auto;
+    aspect-ratio: 1/1;
   }
 
   .swiper-pagination {
@@ -804,6 +809,7 @@ border-radius: 15px;
         display: flex;
         text-align: center;
         position: relative;
+        max-width: 40px;
         img {
           width: auto;
           height: auto;

@@ -55,42 +55,42 @@ function ItemPage(): JSX.Element {
         }
     } 
     return (
-      <>
-        <Header backLink="/sstuff/catalog"/>
-        <section className="main__wrap main__item__wrap">
-        <div className="item">
-            <Slider item={item}/>
-            <div className="item__part item-description__wrap">
-                <div className="item-description__wrap-div">
-                    <article className="item_upper__wrapper">
-                        <h1>{item?.title}</h1>
-                        <h2>{'ID: ' + item?.article}</h2>
-                    </article>
-                    <article className="item_middle__wrapper">
-                        <h3>{item?.price}</h3>
-                        {(item?.sizes.length != 0) 
-                            ? 
-                                <div className="size-selector__wrap">
-                                    <label htmlFor="size-select">Size</label>
-                                    <select className = "size-select" name="drop-down" id="size-select" onChange={(evt) => {setSelectedSize(evt.target.value); setAdded(false)}}>
-                                        {item?.sizes.map((size) => (<option value={size} key={size}>{size}</option>))}
-                                    </select>
-                                </div>
-                            :
-                                undefined
-                        }
-                    </article>
-                    <article className="item_bottom__wrapper">
-                        <button onClick={() => addToCartHandler(item)}>{(!isAdded)?'Add':'Remove'}</button>
-                        <p>{item?.description}</p>
-                    </article>
+        <>
+            <Header backLink="/sstuff/catalog"/>
+            <section className="main__wrap main__item__wrap">
+                <div className="item">
+                    <Slider item={item}/>
+                    <div className="item__part item-description__wrap">
+                        <div className="item-description__wrap-div">
+                            <article className="item_upper__wrapper">
+                                <h1>{item?.title}</h1>
+                                <h2>{'ID: ' + item?.article}</h2>
+                            </article>
+                            <article className="item_middle__wrapper">
+                                <h3>{item?.price}</h3>
+                                {(item?.sizes.length != 0) 
+                                    ? 
+                                        <div className="size-selector__wrap">
+                                            <label htmlFor="size-select">Size</label>
+                                            <select className = "size-select" name="drop-down" id="size-select" onChange={(evt) => {setSelectedSize(evt.target.value); setAdded(false)}}>
+                                                {item?.sizes.map((size) => (<option value={size} key={size}>{size}</option>))}
+                                            </select>
+                                        </div>
+                                    :
+                                        undefined
+                                }
+                            </article>
+                            <article className="item_bottom__wrapper">
+                                <button onClick={() => addToCartHandler(item)}>{(!isAdded)?'Add':'Remove'}</button>
+                                <p>{item?.description}</p>
+                            </article>
+                        </div>
+                        <Background firstColor={"rgba(100,0,255"} secondColor={"rgba(100,130,255"} thirdColor={"rgba(0,0,255"} />
+                    </div>
                 </div>
-                <Background firstColor={"rgba(100,0,255"} secondColor={"rgba(100,130,255"} thirdColor={"rgba(0,0,255"} />
-            </div>
-          </div>
-        </section>
-        <Footer/>
-      </>
+            </section>
+            <Footer/>
+        </>
     );
   }
   

@@ -6,8 +6,29 @@ import ItemPage from '../pages/item-page';
 import CartPage from '../pages/cart-page';
 import ShipPage from '../pages/ship-page';
 import AuthorsPage from '../pages/authors-page';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { toast } from 'react-toastify';
+import { setAllowCookies } from '../store/actions';
 
 function App() {
+  const allowCookies = useAppSelector(store => store.allowCookies);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (!allowCookies) {
+      toast.info('Приложение использует файлы cookies', {
+        position: 'bottom-center',
+        bodyStyle: {
+            fontFamily: '"Montserrat", sans-serif',
+            fontSize: '20px'
+        },
+        theme: 'dark',
+        onClose() {
+          dispatch(setAllowCookies(true));
+        },
+      });
+    }
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

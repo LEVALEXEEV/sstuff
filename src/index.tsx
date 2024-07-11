@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './components/App';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import { setCart, setDevice } from './store/actions';
+import { setAllowCookies, setCart, setDevice } from './store/actions';
 import { getCookie } from './utils';
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, ToastContainer } from 'react-toastify';
@@ -20,6 +20,11 @@ if (cart) {
   store.dispatch(setCart(JSON.parse(cart)));
 }
 
+const allowCookies = getCookie('allowCookies');
+if (allowCookies) {
+  store.dispatch(setAllowCookies(JSON.parse(allowCookies)));
+}
+
 
 root.render(
   <React.StrictMode>
@@ -30,6 +35,7 @@ root.render(
         closeOnClick
         draggable
         transition={Slide}
+        draggablePercent={60}
       />
     </Provider>
   </React.StrictMode>

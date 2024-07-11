@@ -1,47 +1,31 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Background from "../components/background";
 import { Videos } from "../data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../hooks";
-import Background from "../components/background";
 import { useSwipe } from "../hooks/useSwipe";
 import { getNextVideo } from "../utils";
-import { toast } from "react-toastify";
 
 
 function FrontPage(): JSX.Element {
   const device: boolean = useAppSelector((state) => state.device);
+  const allowSwipe: boolean = useAppSelector((state) => state.allowCookies);
   const [activeVideo, setActiveVideo] = useState('1');
   const [isMute, setMute] = useState(false);
-  const [allowSwipe, setAllowSwipe] = useState(false);
-  useEffect(() => {
-    if (!allowSwipe) {
-      toast.info('Приложение использует файлы cookies', {
-        position: 'bottom-center',
-        bodyStyle: {
-            fontFamily: '"Montserrat", sans-serif',
-            fontSize: '20px'
-        },
-        theme: 'dark',
-        onClose() {
-          setAllowSwipe(true);
-        },
-      });
-    }
-  }, []);
-  const rightSwipeHandler = () => {
-    const nextVideo = getNextVideo('r', activeVideo);
-    (document.getElementById(`item-${nextVideo}`) as HTMLInputElement).checked = true;
-    handleChangeVideo(nextVideo);
+
+  const swipeHandler = (direction: string) => {
+    return (() => {
+      const nextVideo = getNextVideo(direction, activeVideo);
+      (document.getElementById(`item-${nextVideo}`) as HTMLInputElement).checked = true;
+      handleChangeVideo(nextVideo);
+    }) 
   }
-  const leftSwipeHandler = () => {
-    const nextVideo = getNextVideo('l', activeVideo);
-    (document.getElementById(`item-${nextVideo}`) as HTMLInputElement).checked = true;
-    handleChangeVideo(nextVideo);
-  }
-  if (allowSwipe) useSwipe({left: leftSwipeHandler, right: rightSwipeHandler});
+
+  if (allowSwipe) useSwipe({left: swipeHandler('l'), right: swipeHandler('r')});
   else useSwipe({left: () => {}});
+
   const handleChangeVideo = (next: string) => {
     (document.getElementById("video-" + activeVideo) as HTMLVideoElement).pause();
     (document.getElementById("video-" + next) as HTMLVideoElement).play();

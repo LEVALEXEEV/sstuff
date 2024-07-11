@@ -554,6 +554,7 @@ display: flex;
 justify-content: center;
 
 .item {
+  position: relative;
   padding-top: 0.7em;
   padding-bottom: 30px;
   align-self: center;
@@ -804,6 +805,7 @@ border-radius: 15px;
         display: flex;
         text-align: center;
         position: relative;
+        max-width: 40px;
         img {
           width: auto;
           height: auto;

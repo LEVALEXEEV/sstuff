@@ -871,7 +871,7 @@ display: -webkit-flex;
   }
   .cart-item {
       max-height: 75px;
-      display: -webkit-inline-grid;
+      
       display: inline-grid;
       grid-template-columns: 10% 60% 20% 10%;
       align-items: center;
@@ -1009,7 +1009,7 @@ display: -webkit-flex;
   justify-content: space-between;
   h2 {
     padding: 10px;
-    font-size: 150%;
+    font-size: 130%;
   }
   .total__price {
     padding: 10px;
@@ -1259,7 +1259,7 @@ border-radius: 15px;
 .cart-item {
   min-width: inherit;
   display: inline-grid;
-  display: -webkit-inline-grid;
+  
   grid-template-columns: 10% 60% 20% 10%;
   align-items: center;
 

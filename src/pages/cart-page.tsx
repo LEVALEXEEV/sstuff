@@ -53,7 +53,7 @@ function CartPage(): JSX.Element {
                                 <div className="cart-item__wrapper" key={item.id}>
                                     <div className="cart-item" >
                                         <div className="item-cart__preview">
-                                            <img src={'/sstuff/img/items/'+item.previewImages[0]}/>
+                                            <img src={'/sstuff/img/items/'+item.previewImages[0]} width={(device)?'35px':''}/>
                                         </div>
                                         <div className="item-left">
                                             <h3>{item.title}</h3>
@@ -90,7 +90,7 @@ function CartPage(): JSX.Element {
                         </div>
                     </div>
                     <h2 className="order__header long__header">SHIP INFORMATION</h2>
-                    <div className="order-inf__wrap" style={(device)?{minWidth: '100%'}:{minWidth: '150%'}}>
+                    <div className="order-inf__wrap" style={(device)?{minWidth: '100%'}:{minWidth: '100%'}}>
                         <div className="form__wrap">
                             <Form />
                         </div>

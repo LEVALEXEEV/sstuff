@@ -34,7 +34,7 @@ function Slider({item}: SliderProps) {
                 {indexes.map((i) => (
                     <SwiperSlide key={i}>
                         <div className="slide__container" >
-                            <img src={"/sstuff/img/items/" + item?.previewImages[i-1]} />
+                            <img src={"/sstuff/img/items/" + item?.previewImages[i-1]} width={(device)?'350px':''}/>
                         </div>
                     </SwiperSlide>
                 ))}

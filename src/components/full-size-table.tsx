@@ -15,7 +15,7 @@ function FullSizeTable({img}: FullSizeTableProps): JSX.Element {
     }
     return (
         <div id="sizes-table-full-image__show" onClick={() => hideTable()}>
-            <div className="sizes-table-img"><img className={'boddy-img__hide'} src={'/sstuff/img/items/sizes-tables/' + img} alt=""/></div>
+            <div className="sizes-table-img"><img className={'boddy-img__hide'} src={'/sstuff/img/items/sizes-tables/' + img} alt="" width="85vmin"/></div>
             <div className="sizes-table-mask"></div>
         </div>
     );

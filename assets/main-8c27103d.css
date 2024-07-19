@@ -664,8 +664,10 @@ padding-left: 2px;
   }
 
   .slide__container {
-    margin: auto;
     aspect-ratio: 1/1;
+    img {
+      border-radius: 15px;
+    }
   }
 
   .swiper-pagination {
@@ -674,7 +676,7 @@ padding-left: 2px;
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 0;
+    bottom: 0 !important;
   }
 
   .pagination-bullet {
@@ -686,9 +688,9 @@ padding-left: 2px;
     display: -webkit-flex;
     align-items: center;
     justify-content: center;
-    width: none;
-    height: none;
-    background: none;
+    width: unset;
+    height: unset;
+    background: unset;
     img {
       width: 60px;
     }

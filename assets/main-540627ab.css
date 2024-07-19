@@ -204,7 +204,7 @@ box-shadow: 0px 25px 11px -19px rgba(34, 60, 80, 0.37) inset;
   background-size: cover;
   margin: 0 auto;
   min-height: 500px;
-  height: 70vh;
+  height: 75vh;
 
 }
 
@@ -730,7 +730,7 @@ padding-left: 2px;
 .item-description__wrap {
   position: relative;
   padding: 25px 20px;
-  padding-top: 30px;
+  padding-top: 40px;
   margin-top: -15px;
   h1 {
     text-align:justify;
@@ -797,7 +797,7 @@ padding-left: 2px;
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 460px) {
   .item-description__wrap {
     h1 {
       font-size: 1.1em;
@@ -1264,12 +1264,19 @@ justify-content: space-between;
 
 .empty-cart {
 text-align: center;
-font-size: 5em;
+font-size: 2.8em;
 line-height: 1em;
 letter-spacing: 0px;
 font-weight: 800;
 color:rgba(0, 0, 0, 0.2);
 }
+
+@media (max-width: 900px) {
+  .empty-cart {
+    font-size: 22vw;
+  }
+}
+
 
 @media (min-width: 900px) {
   .order__wrap {
@@ -1481,6 +1488,10 @@ color:rgba(0, 0, 0, 0.2);
 }
 
 /*authors page*/
+.authors__main__wrap {
+  height: fit-content;
+}
+
 .main-authors-page {
   .creator-card__wrap {
     margin: 10px 0;
@@ -1510,7 +1521,7 @@ color:rgba(0, 0, 0, 0.2);
     }
     .author-text-description__wrap {
       display: flex;
-display: -webkit-flex;
+      display: -webkit-flex;
       position: relative;
       height: 0px;
       width: 100%;

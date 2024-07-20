@@ -639,7 +639,7 @@ font-weight: 800;
     align-items: center;
     justify-content: center;
     aspect-ratio: 1/1;
-    width: inherit; height: inherit;
+    width: 100%;
     .item_img {
       width: -webkit-fill-available; height: -webkit-fill-available;
       object-fit: contain;

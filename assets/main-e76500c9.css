@@ -581,7 +581,7 @@ body .boddy-img__hide {
 
 .main__item__wrap {
   max-height: none;
-  height: fit-content;
+  height: fit-content ;
 }
 
 .size-selector__wrap {
@@ -657,8 +657,6 @@ body .boddy-img__hide {
       align-items: center;
       justify-content: center;
       aspect-ratio: 1/1;
-      width: -webkit-fill-available;
-      height: -webkit-fill-available;
       .item_img {
         width: -webkit-fill-available;
         height: -webkit-fill-available;
@@ -677,28 +675,27 @@ body .boddy-img__hide {
   }
 
   .pagination-bullet {
-    margin: 0 5px;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: contain;
   }
 
   .swiper-pagination-bullet {
+    width: 60px; height: 60px;
     display: flex;
     display: -webkit-flex;
     align-items: center;
     justify-content: center;
-    width: unset;
-    height: unset;
     background: unset !important;
-    img {
-      width: 60px;
-    }
-  }
-  .swiper-pagination-active {
-    background: unset !important;
-    img {
-      width: 60px;
-    }
   }
 }
+
+@media (max-width: 460px) {
+  .item-img-slider__wrap .swiper-pagination-bullet {
+    width: 40px; height: 40px;
+  }
+}
+
 
 .item-description__wrap {
   position: relative;
@@ -771,26 +768,26 @@ body .boddy-img__hide {
 @media (max-width: 460px) {
   .item-description__wrap {
     .item__title {
-      font-size: 1.1em;
+      font-size: 36px;
     }
 
     .item__article {
-      font-size: 0.6em;
+      font-size: 18px;
     }
 
     .item__price {
-      font-size: 1.1em;
+      font-size: 36px;
     }
 
     .add-remove__button {
       width: 40%;
       min-width: unset;
-      font-size: 0.7em;
+      font-size: 25px;
     }
 
     .item-description__paragraph {
       max-width: 300px;
-      font-size: 0.4em;
+      font-size: 11px;
     }
 
     .size-selector__wrap {
@@ -800,11 +797,11 @@ body .boddy-img__hide {
       label {
         text-align: center;
         width: inherit;
-        font-size: 1em;
+        font-size: 35px;
       }
       .size-select {
         width: inherit;
-        font-size: 0.6em;
+        font-size: 20px;
       }
     }
   }
@@ -835,7 +832,6 @@ body .boddy-img__hide {
     justify-content: space-between;
     flex-direction: row-reverse;
     align-items: flex-end;
-    width: 100%;
     height: 20%;
   }
 }

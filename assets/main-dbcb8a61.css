@@ -17,8 +17,8 @@ font-size: xx-large;
 }
 
 .header__wrap {
-position: relative;
-z-index: 3;
+  position: relative;
+  z-index: 3;
 }
 
 .header__wrap .header__wrap__div {
@@ -48,9 +48,9 @@ a {
   justify-content: space-between;
   padding: 5px 20px;
   box-sizing: border-box;
+  margin: 0 auto;
   max-width: var(--page-max-width);
   min-width: var(--page-min-width);
-  margin: 0 auto;
 }
 
 .header img {
@@ -60,13 +60,14 @@ a {
 
 .footer {
   display: flex;
-display: -webkit-flex;
+  display: -webkit-flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 20px;
   box-sizing: border-box;
-  max-width: 1550px;
   margin: 0 auto;
+  max-width: var(--page-max-width);
+  min-width: var(--page-min-width);
 }
 
 .footer__line {
@@ -77,7 +78,6 @@ box-shadow: 0px 25px 11px -19px rgba(34, 60, 80, 0.37) inset;
 }
 
 .footer li {
-  
   display: inline-block;
   position: relative;
   margin: 5px;
@@ -567,8 +567,8 @@ font-weight: 800;
 /*item page*/
 
 .main__item__wrap {
-  max-height: none;
-  height: fit-content ;
+  height: fit-content;
+  min-width: var(--page-min-width);
 }
 
 .size-selector__wrap {
@@ -608,7 +608,7 @@ font-weight: 800;
   height: 500px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 540px) {
   .slider-part, .description-part {
     width: 100%;
     height: unset;
@@ -639,6 +639,7 @@ font-weight: 800;
     align-items: center;
     justify-content: center;
     aspect-ratio: 1/1;
+    width: inherit; height: inherit;
     .item_img {
       width: -webkit-fill-available; height: -webkit-fill-available;
       object-fit: contain;
@@ -736,7 +737,7 @@ font-weight: 800;
   }
 }
 
-@media (min-width: 1021px) {
+@media (min-width: 1022px) {
   .description-part {
     padding-top: 25px;
     margin-top: 0px;

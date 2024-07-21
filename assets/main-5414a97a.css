@@ -662,7 +662,7 @@ font-weight: 800;
   object-fit: contain;
 }
 
-.swiper-pagination-bullet {
+.slider-part .swiper-pagination-bullet {
   width: 60px; height: 60px;
   display: flex;
   display: -webkit-flex;

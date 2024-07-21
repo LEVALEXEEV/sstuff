@@ -733,7 +733,7 @@ font-weight: 800;
     font-size: 0.9em;
   }
 }
-#bg-wrap svg {
+.description-part #bg-wrap svg {
   border-radius: 15px;
 }
 

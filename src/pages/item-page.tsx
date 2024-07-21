@@ -58,16 +58,16 @@ function ItemPage(): JSX.Element {
         <>
             <Header backLink="/sstuff/catalog"/>
             <section className="main__wrap main__item__wrap">
-                <div className="item">
+                <div className="main main__item">
                     <Slider item={item}/>
-                    <div className="item__part item-description__wrap">
-                        <div className="item-description__wrap-div">
-                            <article className="item_upper__wrapper">
-                                <h1>{item?.title}</h1>
-                                <h2>{'ID: ' + item?.article}</h2>
-                            </article>
-                            <article className="item_middle__wrapper">
-                                <h3>{item?.price}</h3>
+                    <div className="item__part description-part">
+                        <div className="description-part-div">
+                            <div className="item_upper__wrapper">
+                                <h1 className="item__title">{item?.title}</h1>
+                                <h2 className="item__article">{'ID: ' + item?.article}</h2>
+                            </div>
+                            <div className="item_middle__wrapper">
+                                <h3 className="item__price">{item?.price}</h3>
                                 {(item?.sizes.length != 0) 
                                     ? 
                                         <div className="size-selector__wrap">
@@ -79,13 +79,13 @@ function ItemPage(): JSX.Element {
                                     :
                                         undefined
                                 }
-                            </article>
-                            <article className="item_bottom__wrapper">
-                                <button onClick={() => addToCartHandler(item)}>{(!isAdded)?'Add':'Remove'}</button>
-                                <p>{item?.description}</p>
-                            </article>
+                            </div>
+                            <div className="item_bottom__wrapper">
+                                <button className="add-remove__button" onClick={() => addToCartHandler(item)}>{(!isAdded)?'Add':'Remove'}</button>
+                                <p className="item-description__paragraph">{item?.description}</p>
+                            </div>
                         </div>
-                        <Background firstColor={"rgba(100,0,255"} secondColor={"rgba(100,130,255"} thirdColor={"rgba(0,0,255"} />
+                       <Background firstColor={"rgba(100,0,255"} secondColor={"rgba(100,130,255"} thirdColor={"rgba(0,237,255"} />
                     </div>
                 </div>
             </section>
@@ -93,5 +93,5 @@ function ItemPage(): JSX.Element {
         </>
     );
   }
-  
+
   export default ItemPage;

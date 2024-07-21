@@ -3,7 +3,7 @@ import { ItemType } from "../types/item";
 
 function Item({previewImages, type, article, title, price}: ItemType): JSX.Element {
     return (
-        <article className="stuff__card">
+        <article className="stuff__card glass_clr">
             <div className="card__image-wrapper">
                 <Link to={`/sstuff/item/${article}`}>
                     <img className="card__image" src={'/sstuff/img/items/'+ previewImages[0]} width="300"  alt="Place image" />

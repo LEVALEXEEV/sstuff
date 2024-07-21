@@ -10,7 +10,6 @@ import { getNextVideo } from "../utils";
 
 
 function FrontPage(): JSX.Element {
-  const device: boolean = useAppSelector((state) => state.device);
   const allowSwipe: boolean = useAppSelector((state) => state.allowCookies);
   const [activeVideo, setActiveVideo] = useState('1');
   const [isMute, setMute] = useState(false);
@@ -34,10 +33,10 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap" style={(device) ? {height: '630px'} : {height: '80vh', minHeight: '950px'}}>
+      <section className="main__wrap" >
         <div className="main">
         <h2 className="page__header front-page__header">NEW STUFF</h2>
-        <div className="container" style={(device) ? {maxHeight: '500px'} : {minHeight: '800px', minWidth: '450px'}}>
+        <div className="container">
             <input type="radio" name="slider" id="item-1" onChange={() => handleChangeVideo('1')} defaultChecked/>
             <input type="radio" name="slider" id="item-2" onChange={() => handleChangeVideo('2')}/>
             <input type="radio" name="slider" id="item-3" onChange={() => handleChangeVideo('3')}/>
@@ -63,15 +62,13 @@ function FrontPage(): JSX.Element {
                 </label>
               ))}
             </div>
-            <div className="button">
-              <div className="upper-part">
-                <div className="info-area" id="test">
-                  {Videos.map((video) => (
-                    <Link to={video.link} key={video.id} className="video-info" id={"video-info-" + video.id}>
-                      <div className="title">{video.description}</div>
-                    </Link>
-                  ))}
-                </div>
+            <div className="button glass_clr">
+              <div className="info-area" id="test">
+                {Videos.map((video) => (
+                  <Link to={video.link} key={video.id} className="video-info" id={"video-info-" + video.id}>
+                    <div className="title">{video.description}</div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

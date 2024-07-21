@@ -1,10 +1,8 @@
-import { useAppSelector } from "../hooks";
 import { CreatorType } from "../types/creator";
 
 function CreatorCard({name, description, img}: CreatorType): JSX.Element {
-    const device = useAppSelector(state => state.device);
     return (
-        <div className={(device)?'creator-card__wrap creator-card__wrap-mobile':"creator-card__wrap"}>
+        <div className="creator-card__wrap">
             <h3>{name}</h3>
             <div className="pic__wrap">
                 <img src={img} alt="###" />

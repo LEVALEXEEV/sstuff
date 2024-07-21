@@ -4,9 +4,9 @@ type FullSizeTableProps = {
 
 function FullSizeTable({img}: FullSizeTableProps): JSX.Element {
     const hideTable = () => {
-        const element = document.getElementById('sizes-table-full-image__show');
+        const element = document.getElementById('show-full');
         if (element) {
-            element.classList.remove('sizes-table-full-image__show');
+            element.classList.remove('show-full');
         }
         const body = document.getElementsByTagName('body');
         if (body) {
@@ -14,9 +14,10 @@ function FullSizeTable({img}: FullSizeTableProps): JSX.Element {
         }
     }
     return (
-        <div id="sizes-table-full-image__show" onClick={() => hideTable()}>
-            <div className="sizes-table-img"><img className={'boddy-img__hide'} src={'/sstuff/img/items/sizes-tables/' + img} alt="" width="85vmin"/></div>
-            <div className="sizes-table-mask"></div>
+        <div id="show-full" className="hide-full" onClick={() => hideTable()}>
+            <div className="sizes-table-img">
+                <img className="body-img__hide" src={'/sstuff/img/items/sizes-tables/' + img} alt="" width="85vmin"/>
+            </div>
         </div>
     );
 }

@@ -43,8 +43,8 @@ function CartPage(): JSX.Element {
         <>
             <Header />
             <section className="main__wrap cart__main" >
-                <div className={(device)?"order__wrap":"order__wrap__pc"}>
-                    <h2 className="page__header order__header">CART</h2>
+                <div className="order__wrap glass_clr">
+                    <h2 className="page__header">CART</h2>
                     <div className="cart-item__list">
                         {
                         (cart.length != 0)
@@ -53,12 +53,12 @@ function CartPage(): JSX.Element {
                                 <div className="cart-item__wrapper" key={item.id}>
                                     <div className="cart-item" >
                                         <div className="item-cart__preview">
-                                            <img src={'/sstuff/img/items/'+item.previewImages[0]} width={(device)?'35px':''}/>
+                                            <img className="cart_item_preview__img" src={'/sstuff/img/items/'+item.previewImages[0]} width={(device)?'35px':'50px'}/>
                                         </div>
                                         <div className="item-left">
-                                            <h3>{item.title}</h3>
+                                            <h3 className="cart_item_title">{item.title}</h3>
                                             <div className="cart-size-selector__wrap">
-                                                <label htmlFor={'size-select'+item.id}>Size</label>
+                                                <label className="size-select_label" htmlFor={'size-select'+item.id}>Size</label>
                                                 <select className = {'size-select '+item.id} name="drop-down" id={'size-select'+item.id} defaultValue={item.selectedSize} onChange={(evt) => handleSizeChange(evt.target)}>
                                                     {item.sizes.map(size => (
                                                         <option value={size} key={size} >{size}</option>
@@ -67,7 +67,7 @@ function CartPage(): JSX.Element {
                                             </div>
                                         </div>
                                         <div className="item-middle">{item.price}</div>
-                                        <div className="item-right"><img src="/sstuff/img/cross.svg" width={'25vmin'} onClick={() => dispatch(setCart(removeItemFromArray(item.id, cart)))}/></div>
+                                        <div className="item-right"><img className="del-from-cart__icon" src="/sstuff/img/cross.svg" width={'25vmin'} onClick={() => dispatch(setCart(removeItemFromArray(item.id, cart)))}/></div>
                                     </div>
                                     <span></span>
                                 </div>
@@ -79,23 +79,21 @@ function CartPage(): JSX.Element {
                     <div className="order-total">
                         <div className="promocode__wrap">
                             <div className="promocode-input">
-                                <h3>Promocode</h3>
+                                <h3 className="promo-title">Promocode</h3>
                                 <input type="text" name="promocode" id="promocode" minLength={4} maxLength={10} disabled={(promo != 1)}></input>
                             </div>
-                            <button onClick={() => handlePromoAppliance()} disabled={(promo != 1)}>apply</button>
+                            <button className="promo__button" onClick={() => handlePromoAppliance()} disabled={(promo != 1)}>apply</button>
                         </div>
                         <div className="total__wrap">
-                            <h2>Total:</h2>
+                            <h2 className="total__title">Total:</h2>
                             <div className="total__price">{totalPrice}</div>
                         </div>
                     </div>
-                    <h2 className="order__header long__header">SHIP INFORMATION</h2>
-                    <div className="order-inf__wrap" style={(device)?{minWidth: '100%'}:{minWidth: '100%'}}>
-                        <div className="form__wrap">
-                            <Form />
-                        </div>
+                    <h2 className="order__header page__header">SHIP INFORMATION</h2>
+                    <div className="form__wrap">
+                        <Form />
                     </div>
-                </div>
+                    </div>
                 <Background firstColor={"rgba(255,255,255"} secondColor={"rgba(211,211,211"} thirdColor={"rgba(181,181,181"} />
             </section>
             <Footer/>

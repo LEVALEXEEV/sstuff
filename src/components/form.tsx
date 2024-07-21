@@ -56,9 +56,9 @@ function Form(): JSX.Element {
         <>
         <iframe name="votar" style={{display: 'none'}}></iframe>
         <form id='user-form' onSubmit={handleSubmit(() => onSubmit())} target="votar">
-            <p>
-                <label htmlFor="name">Name:</label>
-                <input className="name" type="text" id="name" placeholder="Ivan Ivanov"
+            <p className="form__input">
+                <label className="input__title" htmlFor="name">Name:</label>
+                <input className="input_field name" type="text" id="name" placeholder="Ivan Ivanov"
                     {...register("name", {
                         required: "Required",
                         pattern: {
@@ -68,9 +68,9 @@ function Form(): JSX.Element {
                     })}
                 />
             </p>
-            <p>
-                <label htmlFor="email">Email:</label>
-                <input className="email" type="email" id="email" placeholder="swimming@stuff.ru"
+            <p className="form__input">
+                <label className="input__title" htmlFor="email">Email:</label>
+                <input className="input_field email" type="email" id="email" placeholder="swimming@stuff.ru"
                     {...register("email", {
                         required: "Required",
                         pattern: {
@@ -80,9 +80,9 @@ function Form(): JSX.Element {
                     })}
                 />
             </p>
-            <p>
-                <label htmlFor="phone">Phone:</label>
-                <input className="phone" type="tel" id="phone" placeholder="+7 (952) 123-45-67"
+            <p className="form__input">
+                <label className="input__title" htmlFor="phone">Phone:</label>
+                <input className="input_field phone" type="tel" id="phone" placeholder="+7 (952) 123-45-67"
                     {...register("phone", {
                         required: "Required",
                         pattern: {
@@ -92,9 +92,9 @@ function Form(): JSX.Element {
                     })}
                 />
             </p>
-            <p>
-                <label htmlFor="network">Telegram:</label>
-                <input className="network" type="text" id="network" autoComplete="off" placeholder="@sstuff" 
+            <p className="form__input">
+                <label className="input__title" htmlFor="network">Telegram:</label>
+                <input className="input_field network" type="text" id="network" autoComplete="off" placeholder="@sstuff" 
                     {...register("network", {
                         required: "Required",
                         pattern: {
@@ -104,7 +104,7 @@ function Form(): JSX.Element {
                     })}
                 />
             </p>
-            <label className="article__label">Ship:</label>
+            <label className="input__title article__label">Ship:</label>
             <input type="radio" name="ship" id="ship_sdek_pick-up-point" defaultChecked onChange={()=>setShipOption({service: 'SDEK', type: 'point'})}/>
             <input type="radio" name="ship" id="ship_sdek_rider" onChange={()=>setShipOption({service: 'SDEK', type: 'rider'})}/>
             <input type="radio" name="ship" id="PR_pick-up-point" onChange={()=>setShipOption({service: 'PR', type: 'point'})}/>
@@ -126,7 +126,7 @@ function Form(): JSX.Element {
                 </div>
             </div>
             <div className="adress-label__wrap">
-                <label className="article__label">Address:</label>
+                <label className="input__title article__label">Address:</label>
                 <div className="user-hints__ship">    
                     <h4 className="pick-up-point__hint">введите адрес пункта выдачи</h4>
                     <h4 className="rider__hint">введите адрес доставки</h4>
@@ -134,8 +134,8 @@ function Form(): JSX.Element {
             </div>
             <div className="adress__wrap">
                 <div className="adress__part ship-city">
-                    <label htmlFor="city">Город:</label>
-                    <input className="city" type="text" id="city" placeholder="Санкт-Петербург"
+                    <label className="adress-form__label" htmlFor="city">Город:</label>
+                    <input className="input_field city" type="text" id="city" placeholder="Санкт-Петербург"
                         {...register("city", {
                             required: "Required",
                             pattern: {
@@ -146,8 +146,8 @@ function Form(): JSX.Element {
                     />
                 </div>
                 <div className="adress__part ship-street">
-                    <label htmlFor="street">Улица:</label>
-                    <input className="street" type="text" id="street" placeholder="Невский пр."
+                    <label className="adress-form__label" htmlFor="street">Улица:</label>
+                    <input className="input_field street" type="text" id="street" placeholder="Невский пр."
                         {...register("street", {
                             required: "Required",
                             pattern: {
@@ -158,22 +158,22 @@ function Form(): JSX.Element {
                     />
                 </div>
                 <div className="adress__part ship-house">
-                    <label htmlFor="house">Дом:</label>
-                    <input className="house" type="text" id="house" placeholder="1"
+                    <label className="adress-form__label" htmlFor="house">Дом:</label>
+                    <input className="input_field house" type="text" id="house" placeholder="1"
                         {...register("house", {
                             required: "Required",
                         })}
                     />
                 </div>
                 <div className="adress__part ship-apartments">
-                    <label htmlFor="apartments">Квартира:</label>
-                    <input className="apartments" type="text" id="apartments" placeholder="52"
+                    <label className="adress-form__label" htmlFor="apartments">Квартира:</label>
+                    <input className="input_field apartments" type="text" id="apartments" placeholder="52"
                         {...register("apartments", {required: (shipOption.type == 'rider')?'Required':''})}
                     /> 
                 </div>
                 <div className="adress__part ship-index">
-                    <label htmlFor="index">Индекс:</label>
-                    <input className="index" type="text" id="index" placeholder="170652" 
+                    <label className="adress-form__label" htmlFor="index">Индекс:</label>
+                    <input className="input_field index" type="text" id="index" placeholder="170652" 
                         {...register("index", {
                             required: "Required",
                             pattern: {
@@ -184,7 +184,7 @@ function Form(): JSX.Element {
                     /> 
                 </div>
             </div>
-            <button type="submit" disabled={(cart.length == 0 || isLoading)}>Отправить</button>
+            <button className="send-order__button" type="submit" disabled={(cart.length == 0 || isLoading)}>Отправить</button>
         </form>
         </>
     )

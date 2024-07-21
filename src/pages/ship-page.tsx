@@ -1,19 +1,17 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { useAppSelector } from "../hooks";
 import Background from "../components/background";
 import { Link } from "react-router-dom";
 
 
 
 function ShipPage(): JSX.Element {
-  const device: boolean = useAppSelector((state) => state.device);
   return (
     <>
       <Header />
-      <section className="main__wrap">
-        <div className={(device)?'main main_mobile':'main'}>
-            <h2 className="page__header">SHIPPING</h2>
+      <section className="main__wrap ship__main__wrap">
+        <div className='main'>
+            <h2 className="page__header">SHIP</h2>
             <div className="ship-inf__wrap">
                 <h3>Сроки:</h3>
                 <ul>

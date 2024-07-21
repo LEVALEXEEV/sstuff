@@ -24,9 +24,9 @@ function SizesPage(): JSX.Element {
                 setActiveImg('tee-net-full.jpg');
                 break;
         }
-        const element = document.getElementById('sizes-table-full-image__show');
+        const element = document.getElementById('show-full');
         if (element) {
-            element.classList.add('sizes-table-full-image__show');
+            element.classList.add('show-full');
         }
         const body = document.getElementsByTagName('body');
         if (body) {
@@ -37,18 +37,20 @@ function SizesPage(): JSX.Element {
     <>
         <div className="sizes-page">
             <Header />
-            <section className="main__wrap-sizes">
-                <h2 className="page__header sizes-page__header">SIZES TABLES</h2>
-                <ul className="catalog">
-                    {SizesTables.map((item) => (
-                        <li key={item.type} onClick={(evt) => {showTable(evt)}}>
-                            <SizesTable
-                                previewImage={item.previewImage} 
-                                title={item.type}
-                            />
-                        </li>    
-                    ))}
-                </ul>
+            <section className="main__wrap main__wrap-sizes">
+                <div className="main">
+                    <h2 className="page__header sizes-page__header">SIZES TABLES</h2>
+                    <ul className="catalog">
+                        {SizesTables.map((item) => (
+                            <li key={item.type} onClick={(evt) => {showTable(evt)}}>
+                                <SizesTable
+                                    previewImage={item.previewImage} 
+                                    title={item.type}
+                                />
+                            </li>    
+                        ))}
+                    </ul>
+                </div>
                 <Background firstColor={"rgba(255,255,255"} secondColor={"rgba(211,211,211"} thirdColor={"rgba(181,181,181"} />
             </section>
             <Footer/>

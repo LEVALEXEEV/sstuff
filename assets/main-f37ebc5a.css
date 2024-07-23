@@ -330,8 +330,7 @@ body {
 }
 
 .button {
-  position: relative;
-  z-index: 1;
+  overflow: hidden;
   border-radius: 8px;
   min-width: 350px;
   width: 30%;

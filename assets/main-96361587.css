@@ -214,8 +214,8 @@ body {
   background: url(../img/background.png) center center no-repeat;
   background-size: cover;
   margin: 0 auto;
-  min-height: 500px;
   height: calc(100vh - 200px);
+  min-height: fit-content;
 }
 
 @media (min-width: 900px) {
@@ -1317,6 +1317,7 @@ body {
   overflow: scroll;
   overflow-x: hidden;
   height: calc(100vh - 200px);
+  min-height: unset;
 }
 .authors__main__wrap #bg-wrap {
   position: fixed;

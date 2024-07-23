@@ -887,6 +887,7 @@ body {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
+  gap: 0px;
 }
 
 .cart-item {

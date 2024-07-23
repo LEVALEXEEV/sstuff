@@ -887,7 +887,7 @@ body {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  aspect-ratio: 7/1;
+  aspect-ratio: 5.7;
 }
 
 .cart-item {

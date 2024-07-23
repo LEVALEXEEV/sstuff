@@ -1336,6 +1336,7 @@ body {
   max-height: 600px;
   min-height: 450px;
 }
+
 .authors__main__wrap #bg-wrap {
   position: fixed;
   bottom: unset;

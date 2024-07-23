@@ -47,9 +47,11 @@ body {
   display: -webkit-flex;
   flex-direction: column;
 }
-
+.icon-link {
+  height: 80px;
+}
 .backlink__div a {
-  max-width: 80px;
+  width: 80px;
   font-size: medium;
   text-align: center;
   font-weight: 800;
@@ -71,7 +73,6 @@ body {
 }
 
 .header img {
-  margin-top: 10px;
   text-align: center;
 }
 

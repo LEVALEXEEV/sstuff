@@ -12,7 +12,7 @@ function ShipPage(): JSX.Element {
       <section className="main__wrap ship__main__wrap">
         <div className='main'>
             <h2 className="page__header">SHIP</h2>
-            <div className="ship-inf__wrap">
+            <div className="ship-inf__wrap glass_clr">
                 <h3>Сроки:</h3>
                 <ul>
                     <li>Доставка по РФ 1-ым классом 500 руб.</li>
@@ -26,7 +26,7 @@ function ShipPage(): JSX.Element {
                 </p>
             </div>
             <h2 className="page__header">RETURN</h2>
-            <div className="return-inf__wrap">
+            <div className="return-inf__wrap glass_clr">
                 <h3>Политика возврата:</h3>
                 <p>
                 Возврат товара возможен в течение 7 дней с момента получения его покупателем! Товар должен иметь первоначальный внешний вид.

@@ -34,7 +34,7 @@ function FrontPage(): JSX.Element {
     <>
       <Header />
       <section className="main__wrap" >
-        <div className="main">
+        <div className="main main_overflow_hidden">
         <h2 className="page__header front-page__header">NEW STUFF</h2>
         <div className="container">
             <input type="radio" name="slider" id="item-1" onChange={() => handleChangeVideo('1')} defaultChecked/>

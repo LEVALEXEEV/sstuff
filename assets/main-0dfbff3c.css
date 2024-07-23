@@ -887,7 +887,7 @@ body {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  height: fit-content;
+  height: 100px;
 }
 
 .cart-item {

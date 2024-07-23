@@ -218,7 +218,7 @@ body {
 }
 
 .container {
-  overflow: hidden;
+  /*overflow: hidden;*/
   width: 100%;
   aspect-ratio: 0.81;
   transform-style: preserve-3d;

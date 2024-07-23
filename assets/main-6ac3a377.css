@@ -217,6 +217,7 @@ body {
 }
 
 .container {
+  position: relative;
   width: 100%;
   aspect-ratio: 0.77;
   transform-style: preserve-3d;

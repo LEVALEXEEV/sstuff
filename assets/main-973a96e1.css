@@ -887,14 +887,14 @@ body {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
-  aspect-ratio: 4.5;
 }
 
 .cart-item {
   display: inline-grid;
   grid-template-columns: 13% 57% 20% 10%;
   align-items: center;
-  width: -webkit-fill-available;
+  width: 100%;
+  aspect-ratio: 5.5;
 }
 
 .cart-item .item-cart__preview {

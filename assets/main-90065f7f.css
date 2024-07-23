@@ -217,6 +217,12 @@ body {
   margin: 0 auto;
 }
 
+@media (max-width: 500px) {
+  .main__wrap {
+    background: url(../img/mobile-background.jpg) center center no-repeat;
+  }
+}
+
 .main_overflow_hidden {
   overflow: hidden;
 }
@@ -368,7 +374,7 @@ body {
 }
 
 .video-info .title {
-  color: #4f4a4f;
+  color: antiquewhite;
   font-size: 30px;
   line-height: 30px;
   font-weight: 900;
@@ -444,6 +450,18 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px 5%;
+}
+
+@media (max-width: 500px) {
+  .main {
+    padding: 0;
+  }
+  .catalog {
+    overflow-y: scroll;
+    min-height: 450px;
+    height: calc(100vh - 200px);
+  }
+  .catalog::-webkit-scrollbar { width: 0; }
 }
 
 .catalog li {
@@ -1310,14 +1328,19 @@ body {
 
 
 /*ship page*/
-
-@media (max-width: 400px) {
+.ship-inf__wrap, .return-inf__wrap {
+  border-radius: 15px;
+}
+@media (max-width: 500px) {
   .ship__main__wrap h3 {
     font-size: 90%;
   }
   .ship__main__wrap li, .ship__main__wrap p {
     font-size: 52%;
     font-weight: 500;
+  }
+  .ship-inf__wrap, .return-inf__wrap {
+    padding-inline: 10px;
   }
 }
 
@@ -1326,7 +1349,7 @@ body {
   min-height: unset;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 500px) {
   .ship-inf__wrap, .return-inf__wrap {
     width: 90%;
     font-size: 60%;
@@ -1337,8 +1360,6 @@ body {
 .authors__main__wrap {
   position: relative;
   min-width: var(--page-min-width);
-  overflow: scroll;
-  overflow-x: hidden;
   height: calc(100vh - 200px);
   max-height: 600px;
   min-height: 450px;
@@ -1353,14 +1374,26 @@ body {
   height: 100vh;
 }
 
+
+.autors-cards__wrapper {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  gap: 10px;
+}
+.autors-cards__wrapper::-webkit-scrollbar { width: 0; }
+
 .creator-card__wrap {
-  margin: 10px 0;
   width: 80%;
   position: relative;
   text-align: center;
   border-radius: 15px;
   z-index: 2;
   background-color: white;
+  box-shadow: 0px 0px 30px rgba(227, 228, 237, 1);
+  border: 2px solid rgba(255, 255, 255, 0.18);
 }
 .creator-card__wrap h3 {
   padding: 20px 0;

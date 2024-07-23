@@ -346,6 +346,7 @@ body {
   display: flex;
   display: -webkit-flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 @media (hover: hover) {

@@ -37,7 +37,7 @@ body {
 }
 
 .header__wrap {
-  height: 100%;
+  height: 100px;
   background-color: white;
   box-shadow: 0px -25px 11px -19px rgba(34, 60, 80, 0.37) inset;
 }
@@ -1344,7 +1344,7 @@ body {
   overflow: hidden;
   min-height: inherit;
   max-height: inherit;
-  height: inherit;
+  height: 100vh;
 }
 
 .creator-card__wrap {
@@ -1407,12 +1407,18 @@ body {
   transform: rotatex(180deg);
 }
 
+@media (max-width: 1100px) {
+  .authors__main__wrap #bg-wrap {
+    height: calc(100vh - 200px);
+  }
+}
+
 @media (max-width: 605px) {
+  .authors__main__wrap #bg-wrap {
+    height: calc(100vh - 200px);
+  }
   .authors__main__wrap {
     max-height: unset;
-  }
-  .authors__main__wrap #bg-wrap {
-    height: inherit;
   }
   .main-authors-page .creator-card__wrap {
     width: 95%;

@@ -217,8 +217,11 @@ body {
   margin: 0 auto;
 }
 
+.main_overflow_hidden {
+  overflow: hidden;
+}
+
 .container {
-  /*overflow: hidden;*/
   width: 100%;
   aspect-ratio: 0.81;
   transform-style: preserve-3d;

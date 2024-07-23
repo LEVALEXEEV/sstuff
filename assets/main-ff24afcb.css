@@ -220,7 +220,7 @@ body {
 .container {
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 0.77;
+  aspect-ratio: 0.81;
   transform-style: preserve-3d;
   display: flex;
   display: -webkit-flex;

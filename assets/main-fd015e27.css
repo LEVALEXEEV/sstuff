@@ -220,6 +220,7 @@ body {
 @media (max-width: 500px) {
   .main__wrap {
     background: url(../img/mobile-background.jpg) center center no-repeat;
+    background-size: cover;
   }
 }
 

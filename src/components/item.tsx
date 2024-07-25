@@ -14,10 +14,8 @@ function Item({previewImages, type, article, title, price}: ItemType): JSX.Eleme
                 <h2 className="card__name">
                     <Link to={`/sstuff/item/${article}`}>{title}</Link>
                 </h2>
-                <div className="card__price-wrapper">
-                    <div className="card__price">
-                        <b className="card__price-value">{price}</b>
-                    </div>
+                <div className="card__price">
+                    <i className="card__price-value">{price}</i>
                 </div>
             </div>
         </article>

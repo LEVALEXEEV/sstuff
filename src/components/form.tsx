@@ -82,7 +82,7 @@ function Form(): JSX.Element {
             </p>
             <p className="form__input">
                 <label className="input__title" htmlFor="phone">Phone:</label>
-                <input className="input_field phone" type="tel" id="phone" placeholder="+7 (952) 123-45-67"
+                <input className="input_field phone" type="tel" id="phone" placeholder="+7 (952) 812-45-67"
                     {...register("phone", {
                         required: "Required",
                         pattern: {
@@ -139,7 +139,7 @@ function Form(): JSX.Element {
                         {...register("city", {
                             required: "Required",
                             pattern: {
-                                value: /^([А-ЯЁа-яё\.]{2,20}\s{0,3}){1,5}$|([A-Za-z\.]{2,20}\s{0,3}){1,5}$/i,
+                                value: /^([А-ЯЁа-яё\.-]{2,20}\s{0,3}){1,5}$|([A-Za-z\.]{2,20}\s{0,3}){1,5}$/i,
                                 message: "Ошибка в поле города"
                             }
                         })}

@@ -1352,6 +1352,10 @@ body {
   .ship-inf__wrap, .return-inf__wrap {
     padding-inline: 10px;
   }
+  .ship-inf__wrap ul {
+    list-style-position: inside;
+    list-style-type: square;
+  }
 }
 
 .ship__main__wrap {
@@ -1363,6 +1367,7 @@ body {
   .ship-inf__wrap, .return-inf__wrap {
     width: 90%;
     font-size: 60%;
+    padding-inline: 20px;
   }
 }
 

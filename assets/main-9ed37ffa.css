@@ -204,7 +204,7 @@ body {
   }
   textPath {
     font-size: medium;
-    
+
   }
 }
 
@@ -679,7 +679,7 @@ body {
 
 @media (max-width: 540px) {
   .slider-part, .description-part {
-    width: 100%;
+    width: 95%;
     height: unset;
     aspect-ratio: 1/1 !important;
   }
@@ -779,13 +779,13 @@ body {
   border-radius: 15px;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  font-size: 1.1em;
+  font-size: 0.9em;
   color: white;
   background-color: rgb(73, 73, 73);
 }
 
 .item-description__paragraph {
-  width: 50%;
+  width: 55%;
   padding: 5px 5px;
   max-width: 300px;
   font-family: "Montserrat", sans-serif;
@@ -795,7 +795,7 @@ body {
 }
 .size-selector__wrap label {
   text-align: center;
-  font-size: 1.4em;
+  font-size: 0.9em;
 }
 .size-selector__wrap .size-select {
   font-size: 0.9em;
@@ -829,12 +829,12 @@ body {
   .add-remove__button {
     width: 40%;
     min-width: unset;
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .item-description__paragraph {
     max-width: 300px;
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .size-selector__wrap {
@@ -845,7 +845,7 @@ body {
   .size-selector__wrap label {
     text-align: center;
     width: inherit;
-    font-size: 35px;
+    font-size: 25px;
   }
   .size-selector__wrap .size-select {
     width: inherit;
@@ -1485,7 +1485,7 @@ body {
   transform: rotatex(180deg);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 720px) {
   .authors__main__wrap {
     background: unset;
   }

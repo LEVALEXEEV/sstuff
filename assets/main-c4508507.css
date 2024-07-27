@@ -192,6 +192,22 @@ body {
 
 /*front page*/
 
+.marquee {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  overflow: visible;
+
+  path {
+    opacity: 0;
+    
+  }
+  textPath {
+    font-size: medium;
+    
+  }
+}
+
 .page__header {
   text-align: center;
   max-width: 1100px;

@@ -1091,6 +1091,7 @@ body {
   height: 35px;
   border: none;
   border-bottom: solid 0.5px #000;
+  border-radius: 0;
 }
 
 .input_field__error {

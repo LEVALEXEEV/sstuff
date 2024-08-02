@@ -1137,6 +1137,7 @@ body {
 .adress__part .input_field {
   margin-left: 6%;
   width: 80%;
+  border-radius: 0;
 }
 .adress__part .adress-form__label {
   margin-left: 6%;
@@ -1254,7 +1255,7 @@ body {
 #PR_pick-up-point:checked ~ .ship__wrap .PR_pick-up-point,
 #PR_rider:checked ~ .ship__wrap .PR_rider {
   border: solid black;
-  border-width: 2.5px;
+  border-width: 1.5px;
   transform: scale(1.1);
 }
 

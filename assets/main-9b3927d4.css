@@ -1093,8 +1093,9 @@ body {
   border-bottom: solid 0.5px #000;
 }
 
-.input_field__wrong {
+.input_field__error {
   border-bottom: solid 0.5px #ff0000;
+  background-color: #d75a5a3f;
 }
 
 .ship__wrap {

@@ -1,4 +1,3 @@
-import Background from "../components/background";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import Item from "../components/item";
@@ -26,7 +25,6 @@ function CatalogPage(): JSX.Element {
                     ))}
                 </ul>
             </div>
-            <Background firstColor={"rgba(255,255,255"} secondColor={"rgba(211,211,211"} thirdColor={"rgba(181,181,181"} />
         </section>
         <Footer/>
       </>

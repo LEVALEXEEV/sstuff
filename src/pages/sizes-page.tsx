@@ -5,7 +5,6 @@ import Header from "../components/header";
 import SizesTable from "../components/sizes-table";
 import { SizesTables } from "../data";
 import { ItemTypes } from "../const";
-import Background from "../components/background";
 
 function SizesPage(): JSX.Element {
     const [activeImg, setActiveImg] = useState<string | undefined>(undefined);
@@ -37,7 +36,7 @@ function SizesPage(): JSX.Element {
     <>
         <div className="sizes-page">
             <Header />
-            <section className="main__wrap main__wrap-sizes">
+            <section className="main__wrap main__wrap-sizes hmf-full">
                 <div className="main">
                     <h2 className="page__header sizes-page__header">SIZES TABLES</h2>
                     <ul className="catalog">
@@ -51,7 +50,6 @@ function SizesPage(): JSX.Element {
                         ))}
                     </ul>
                 </div>
-                <Background firstColor={"rgba(255,255,255"} secondColor={"rgba(211,211,211"} thirdColor={"rgba(181,181,181"} />
             </section>
             <Footer/>
         </div>

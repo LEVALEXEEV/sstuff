@@ -12,7 +12,7 @@ function Form(): JSX.Element {
     const dispatch = useAppDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [shipOption, setShipOption] = useState({service: 'SDEK', type: 'point'});
-    const { handleSubmit, register} = useForm();
+    const {handleSubmit, register, formState: { errors }} = useForm();
 
     const onSubmit = async () => {
         const form = document.getElementById('user-form') as HTMLFormElement;
@@ -51,14 +51,14 @@ function Form(): JSX.Element {
             setIsLoading(false);
         }
     }
-
+    
     return(
         <>
         <iframe name="votar" style={{display: 'none'}}></iframe>
         <form id='user-form' onSubmit={handleSubmit(() => onSubmit())} target="votar">
             <p className="form__input">
-                <label className="input__title" htmlFor="name">Name:</label>
-                <input className="input_field name" type="text" id="name" placeholder="Ivan Ivanov"
+                <label className="input__title" htmlFor="name">Имя:</label>
+                <input className={(!errors.name)?"input_field index":"input_field input_field__error name"} type="text" id="name" placeholder="Иван Иванов"
                     {...register("name", {
                         required: "Required",
                         pattern: {
@@ -69,8 +69,8 @@ function Form(): JSX.Element {
                 />
             </p>
             <p className="form__input">
-                <label className="input__title" htmlFor="email">Email:</label>
-                <input className="input_field email" type="email" id="email" placeholder="swimming@stuff.ru"
+                <label className="input__title" htmlFor="email">Почта:</label>
+                <input className={(!errors.email)?"input_field index":"input_field input_field__error email"} type="email" id="email" placeholder="swimming@stuff.ru"
                     {...register("email", {
                         required: "Required",
                         pattern: {
@@ -81,8 +81,8 @@ function Form(): JSX.Element {
                 />
             </p>
             <p className="form__input">
-                <label className="input__title" htmlFor="phone">Phone:</label>
-                <input className="input_field phone" type="tel" id="phone" placeholder="+7 (952) 812-45-67"
+                <label className="input__title" htmlFor="phone">Телефон:</label>
+                <input className={(!errors.phone)?"input_field index":"input_field input_field__error phone"} type="tel" id="phone" placeholder="+7 (952) 812-45-67"
                     {...register("phone", {
                         required: "Required",
                         pattern: {
@@ -93,8 +93,8 @@ function Form(): JSX.Element {
                 />
             </p>
             <p className="form__input">
-                <label className="input__title" htmlFor="network">Telegram:</label>
-                <input className="input_field network" type="text" id="network" autoComplete="off" placeholder="@sstuff" 
+                <label className="input__title" htmlFor="network">Телеграм:</label>
+                <input className={(!errors.network)?"input_field index":"input_field input_field__error network"} type="text" id="network" autoComplete="off" placeholder="@sstuff" 
                     {...register("network", {
                         required: "Required",
                         pattern: {
@@ -104,7 +104,7 @@ function Form(): JSX.Element {
                     })}
                 />
             </p>
-            <label className="input__title article__label">Ship:</label>
+            <label className="input__title article__label">Тип доставки:</label>
             <input type="radio" name="ship" id="ship_sdek_pick-up-point" defaultChecked onChange={()=>setShipOption({service: 'SDEK', type: 'point'})}/>
             <input type="radio" name="ship" id="ship_sdek_rider" onChange={()=>setShipOption({service: 'SDEK', type: 'rider'})}/>
             <input type="radio" name="ship" id="PR_pick-up-point" onChange={()=>setShipOption({service: 'PR', type: 'point'})}/>
@@ -126,7 +126,7 @@ function Form(): JSX.Element {
                 </div>
             </div>
             <div className="adress-label__wrap">
-                <label className="input__title article__label">Address:</label>
+                <label className="input__title article__label">Адрес:</label>
                 <div className="user-hints__ship">    
                     <h4 className="pick-up-point__hint">введите адрес пункта выдачи</h4>
                     <h4 className="rider__hint">введите адрес доставки</h4>
@@ -135,7 +135,7 @@ function Form(): JSX.Element {
             <div className="adress__wrap">
                 <div className="adress__part ship-city">
                     <label className="adress-form__label" htmlFor="city">Город:</label>
-                    <input className="input_field city" type="text" id="city" placeholder="Санкт-Петербург"
+                    <input className={(!errors.city)?"input_field index":"input_field input_field__error city"} type="text" id="city" placeholder="Санкт-Петербург"
                         {...register("city", {
                             required: "Required",
                             pattern: {
@@ -147,7 +147,7 @@ function Form(): JSX.Element {
                 </div>
                 <div className="adress__part ship-street">
                     <label className="adress-form__label" htmlFor="street">Улица:</label>
-                    <input className="input_field street" type="text" id="street" placeholder="Невский пр."
+                    <input className={(!errors.street)?"input_field index":"input_field input_field__error street"} type="text" id="street" placeholder="Невский пр."
                         {...register("street", {
                             required: "Required",
                             pattern: {
@@ -173,7 +173,7 @@ function Form(): JSX.Element {
                 </div>
                 <div className="adress__part ship-index">
                     <label className="adress-form__label" htmlFor="index">Индекс:</label>
-                    <input className="input_field index" type="text" id="index" placeholder="170652" 
+                    <input className={(!errors.index?.message)?"input_field index":"input_field input_field__error index"} type="text" id="index" placeholder="170652" 
                         {...register("index", {
                             required: "Required",
                             pattern: {

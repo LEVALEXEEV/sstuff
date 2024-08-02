@@ -1,3 +1,5 @@
+import { ItemTypes, PromoTypes } from "./const";
+import { Promocodes } from "./data";
 import { CartItemType } from "./types/cart-item"
 
 export  function getHash(str: string): number {
@@ -7,7 +9,7 @@ export  function getHash(str: string): number {
         hash = ((hash << 5) - hash) + newString.charCodeAt(i); 
         hash |= 0; // Convert to 32bit integer 
     }
-    return hash; 
+    return Math.abs(hash % 10000 + Math.floor(hash / 10000)); 
 }
 
 export const removeItemFromArray = (targetItemID: string, cart: CartItemType[]) => cart.filter(item => item.id != targetItemID);
@@ -59,6 +61,31 @@ export const getNextVideo = (direction: string, current: string) => {
                 return '2';
             default: 
                 return '0';
-         }
+        }
     }
+}
+
+export const calculatePromo = (cart: CartItemType[], code: String) => {
+    const availableCode = Promocodes.filter(promocode => promocode.keyWord == code)[0];
+    if (availableCode) {
+        if (availableCode.type == PromoTypes.Coef) return availableCode.sale;
+        else {
+            const promoItems = cart.filter((item) => item.type == ItemTypes.Cap);
+            switch (availableCode.keyWord) {
+                case 'CAP2': {
+                    const promo = Math.floor(promoItems.length / 2) * availableCode.sale;
+                    if (promo > 0) return promo;
+                    break;
+                }
+                case 'CAP3': {
+                    const promo = Math.floor(promoItems.length / 3) * availableCode.sale;
+                    if (promo > 0) return promo;
+                    break;
+                }
+                default: 
+                    return 1;
+            }
+        }
+    }
+    return 1;
 }

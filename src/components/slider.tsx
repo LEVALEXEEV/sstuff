@@ -11,7 +11,7 @@ type SliderProps = {
 
 function Slider({item}: SliderProps) {
     const imgWidth = (window.innerWidth < 540)? window.innerWidth - 20 : 500;
-    const bulletWidth = (window.innerWidth < 460)? 40 : 60;
+    const bulletWidth = (window.innerWidth < 460)? 40 : 80;
     const indexes = [];
     const path = '/sstuff/img/items/';
     for (var index in item?.previewImages) {indexes.push(Number(index)+1);}

@@ -12,7 +12,7 @@ function AuthorsPage(): JSX.Element {
             <Header />
             <section className="main__wrap authors__main__wrap">
                 <div className="main main-authors-page">
-                    <h2 className="page__header">CREATORS</h2>
+                    <h2 className="page__header authors-page__header">CREATORS</h2>
                     <div className="autors-cards__wrapper">
                         {Creators.map(creator => <CreatorCard key={creator.name} name={creator.name} description={creator.description} img={creator.img} />)}
                     </div>

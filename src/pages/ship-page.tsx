@@ -9,7 +9,7 @@ function ShipPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap ship__main__wrap">
+      <section className="main__wrap ship__main__wrap hmf-full">
         <div className='main'>
             <h2 className="page__header">SHIP</h2>
             <div className="ship-inf__wrap glass_clr">

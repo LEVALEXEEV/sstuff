@@ -5,7 +5,7 @@ type SizesTableProps = {
 
 function SizesTable({previewImage, title}: SizesTableProps): JSX.Element {
     return (
-        <article className="stuff__card glass_clr">
+        <article className="stuff__card">
             <div className="card__image-wrapper">
                 <img className={'card__image card__image__' + title} src={'/sstuff/img/items/'+ previewImage} width="300"  alt="Place image" />
             </div>

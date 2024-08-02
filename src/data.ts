@@ -1,4 +1,4 @@
-import { ItemTypes } from "./const";
+import { ItemTypes, PromoTypes } from "./const";
 import { VideoType } from "./types/video";
 import { ItemType } from "./types/item";
 import { SizeTableType } from "./types/sizes-table";
@@ -21,8 +21,8 @@ export const Videos: VideoType[] = [
     {
         src: "videos/prev3.MOV",
         id: '3',
-        description: 'cup',
-        link: 'catalog'
+        description: 'cap',
+        link: 'item/swimmingstuff-cap-w'
     },
 ]
 
@@ -134,7 +134,34 @@ export const Items: ItemType[] = [
         type: ItemTypes.Shorts,
         description: 'Цвет: Молочный\nМатериал: футер 2-х нитка, плотность 240: 92% хлопок, 8% лайкра.',
         sizes: ['s', 'm', 'l', 'xl']
-    }
+    },
+    {
+        previewImages: ['swimmingstuff-cap-w.png', 'swimmingstuff-cap-w-bc.jpg'],
+        price: 950,
+        article: 'swimmingstuff-cap-w',
+        title: 'swimming stuff',
+        type: ItemTypes.Cap,
+        description: 'Цвет: Белый\nМатериал: силикон 100%, плотность 180 микрон.',
+        sizes: []
+    },
+    {
+        previewImages: ['swimmingstuff-cap-b.png', 'swimmingstuff-cap-b-bc.jpg'],
+        price: 950,
+        article: 'swimmingstuff-cap-b',
+        title: 'swimming stuff',
+        type: ItemTypes.Cap,
+        description: 'Цвет: Черный\nМатериал: силикон 100%, плотность 180 микрон.',
+        sizes: []
+    },
+    {
+        previewImages: ['swimmingstuff-cap-three.png', 'swimmingstuff-cap-three-bc.jpg'],
+        price: 950,
+        article: 'swimmingstuff-cap-three',
+        title: 'swimming stuff',
+        type: ItemTypes.Cap,
+        description: 'Цвет: Триколор\nМатериал: силикон 100%, плотность 180 микрон.',
+        sizes: []
+    },
 ]
 
 export const SizesTables: SizeTableType[] = [
@@ -159,11 +186,23 @@ export const SizesTables: SizeTableType[] = [
 export const Promocodes: PromocodeType[] = [
     {
         keyWord: 'JULYSALE',
-        sale: 0.9
+        sale: 0.9,
+        type: PromoTypes.Coef
     },
     {
         keyWord: 'STUFF',
-        sale: 0.8
+        sale: 0.8,
+        type: PromoTypes.Coef
+    },
+    {
+        keyWord: 'CAP2',
+        sale: 250,
+        type: PromoTypes.Sum
+    },
+    {
+        keyWord: 'CAP3',
+        sale: 700,
+        type: PromoTypes.Sum
     }
 ]
 

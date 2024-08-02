@@ -3,7 +3,6 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import { Items } from "../data";
 import { useEffect, useState } from "react";
-import Background from "../components/background";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { setCart } from "../store/actions";
 import { ItemType } from "../types/item";
@@ -24,7 +23,8 @@ function ItemPage(): JSX.Element {
 
     useEffect(() => {
         setItemID(item?.article + '_' + getHash(JSON.stringify(item)));
-        setSelectedSize((document.getElementById("size-select") as HTMLInputElement).value);
+        const size = document.getElementById("size-select") as HTMLInputElement || null;
+        if (size) setSelectedSize(size.value);
     },[selectedSize])
 
     const addToCartHandler = (item: ItemType  | undefined) => {
@@ -57,35 +57,28 @@ function ItemPage(): JSX.Element {
     return (
         <>
             <Header backLink="/sstuff/catalog"/>
-            <section className="main__wrap main__item__wrap">
+            <section className="main__wrap main__item__wrap hmf-full">
                 <div className="main main__item">
                     <Slider item={item}/>
                     <div className="item__part description-part">
                         <div className="description-part-div">
-                            <div className="item_upper__wrapper">
-                                <h1 className="item__title">{item?.title}</h1>
-                                <h2 className="item__article">{'ID: ' + item?.article}</h2>
-                            </div>
-                            <div className="item_middle__wrapper">
-                                <h3 className="item__price">{item?.price}</h3>
-                                {(item?.sizes.length != 0) 
-                                    ? 
-                                        <div className="size-selector__wrap">
-                                            <label htmlFor="size-select">Size</label>
-                                            <select className = "size-select" name="drop-down" id="size-select" onChange={(evt) => {setSelectedSize(evt.target.value); setAdded(false)}}>
-                                                {item?.sizes.map((size) => (<option value={size} key={size}>{size}</option>))}
-                                            </select>
-                                        </div>
-                                    :
-                                        undefined
-                                }
-                            </div>
-                            <div className="item_bottom__wrapper">
-                                <button className="add-remove__button" onClick={() => addToCartHandler(item)}>{(!isAdded)?'Add':'Remove'}</button>
-                                <p className="item-description__paragraph">{item?.description}</p>
-                            </div>
+                            <h1 className="item__title">{item?.title}</h1>
+                            <h2 className="item__article">{'ID: ' + item?.article}</h2>
+                            <h3 className="item__price">{item?.price} руб</h3>
+                            {(item?.sizes.length != 0) 
+                                ? 
+                                    <div className="size-selector__wrap">
+                                        <label htmlFor="size-select">Размер</label>
+                                        <select className = "size-select" name="drop-down" id="size-select" onChange={(evt) => {setSelectedSize(evt.target.value); setAdded(false)}}>
+                                            {item?.sizes.map((size) => (<option value={size} key={size}>{size}</option>))}
+                                        </select>
+                                    </div>
+                                :
+                                    undefined
+                            }
+                            <button className="add-remove__button" onClick={() => addToCartHandler(item)}>{(!isAdded)?'В корзину':'Убрать'}</button>
+                            <p className="item-description__paragraph">{item?.description}</p>
                         </div>
-                       <Background firstColor={"rgba(100,0,255"} secondColor={"rgba(100,130,255"} thirdColor={"rgba(0,237,255"} />
                     </div>
                 </div>
             </section>

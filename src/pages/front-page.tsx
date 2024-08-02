@@ -33,7 +33,7 @@ function FrontPage(): JSX.Element {
   return (
     <>
       <Header />
-      <section className="main__wrap" >
+      <section className="main__wrap hmf-full" >
         <div className="main main_overflow_hidden">
         <h2 className="page__header front-page__header">NEW STUFF</h2>
         <div className="container">
@@ -62,7 +62,7 @@ function FrontPage(): JSX.Element {
                 </label>
               ))}
             </div>
-            <div className="button glass_clr">
+            <div className="button">
               <div className="info-area" id="test">
                 {Videos.map((video) => (
                   <Link to={video.link} key={video.id} className="video-info" id={"video-info-" + video.id}>

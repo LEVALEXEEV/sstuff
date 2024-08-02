@@ -4,7 +4,11 @@ import { getHash } from "../utils";
 
 export const sendOrder = async (cart: CartItemType[], form: HTMLFormElement, shipOption: { service: string; type: string; }, totalPrice: number) => {
     let items = `CART:\n`;
-    cart.map((item) => (items= items + `ID: ${item.article}, size: ${item.selectedSize}\n`));
+    cart.map((item) => {
+        let itemInf = `ID: ${item.article}`;
+        if (item.selectedSize) itemInf += `, size: ${item.selectedSize}`;
+        items = items + itemInf + `\n`;
+    });
     let userData = `\nBUYER:\n`;
     USER_DATA_PARTS.map(
         (part) => {

@@ -1087,7 +1087,7 @@ body {
 .input_field {
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 3vmin;
-  width: 80%;
+  width: 100%;
   height: 35px;
   border: none;
   border-bottom: solid 0.5px #000;

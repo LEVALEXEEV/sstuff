@@ -93,16 +93,15 @@ body {
 .footer li {
   display: inline-block;
   position: relative;
-  margin: 5px;
 }
 
 .footer img {
-  margin-top: 10px;
   text-align: center;
 }
 
 .footer a {
-  display: inline-block;
+  display: flex;
+  display: -webkit-flex;
 }
 
 .footer__text {
@@ -110,7 +109,11 @@ body {
 }
 
 .footer__links {
-  min-width: 150px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
 }
 
 .hamburger-menu {
@@ -190,22 +193,6 @@ body {
 
 
 /*front page*/
-
-.marquee {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  overflow: visible;
-
-  path {
-    opacity: 0;
-    
-  }
-  textPath {
-    font-size: medium;
-
-  }
-}
 
 .page__header {
   text-align: center;
@@ -493,6 +480,7 @@ body {
 }
 
 .stuff__card {
+  cursor: pointer;
   text-decoration: none;
   color: black;
 }
@@ -523,14 +511,14 @@ body {
 }
 
 @media (hover: hover) {
-  .stuff__card:hover {
+  .catalog li:hover {
     box-shadow: none;
     transition-duration: .4s;
     transform: scale(.95);
   }
 }
 @media (hover: none) {
-  .stuff__card:active {
+  .catalog li:active {
     box-shadow: none;
     transition-duration: .4s;
     transform: scale(.95);
@@ -583,13 +571,20 @@ body {
 
 
 /*sizes-page*/
+.sizes-page .catalog {
+  margin-bottom: 5px;
+}
 
 .sizes-page .card__info {
   display: flex;
   display: -webkit-flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
+  height: 60px;
+}
+
+.sizes-page .catalog li {
+  height: unset;
 }
 
 @media (max-width: 500px) {
@@ -926,7 +921,7 @@ body {
   grid-template-columns: 13% 57% 20% 10%;
   align-items: center;
   width: 100%;
-  aspect-ratio: 5.5;
+  aspect-ratio: 6;
 }
 
 .cart-item .item-cart__preview {
@@ -1008,11 +1003,11 @@ body {
 
 
 .order-total {
-  margin-bottom: 10%;
+  margin-bottom: 7%;
   width: 100%;
 }
 .order-total .promo-title {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 50%;
 }
 .promocode__wrap {
@@ -1028,20 +1023,20 @@ body {
   display: -webkit-flex;
   width: 100%;
   justify-items: center;
-  align-items: center;
+  align-items: flex-start;
+    flex-direction: column;
 }
 #promocode {
   font-family: 'Roboto', Arial, sans-serif;
-  margin-left: 5px;
-  margin-right: 5px;
   font-size: 60%;
-  max-width: 50%;
+  width: 40%;
   height: 80%;
 }
 .promo__button {
+  margin-top: 3px;
   display: inline-block;
-  font-size: 30%;
-  width: 90px;
+  font-size: 40%;
+  width: 40%;
   letter-spacing: 0.05em;
   padding: 4px;
   border-radius: 15px;
@@ -1137,7 +1132,7 @@ body {
 }
 .adress__part .input_field {
   margin-left: 6%;
-  width: 80%;
+  width: 87%;
   border-radius: 0;
 }
 .adress__part .adress-form__label {
@@ -1163,6 +1158,7 @@ body {
 .user-hints__ship  h4 {
   font-size: 2.5vmin;
   font-weight: 400;
+  opacity: 0.6;
 }
 
 
@@ -1262,12 +1258,13 @@ body {
 
 
 .empty-cart {
+  font-style: oblique;
   text-align: center;
   font-size: 2.8em;
   line-height: 1em;
   letter-spacing: 0px;
   font-weight: 800;
-  color:rgba(0, 0, 0, 0.2);
+  color:rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 900px) {
@@ -1279,24 +1276,19 @@ body {
 
 @media (min-width: 900px) {
   .order__wrap {
-    width: 820px;
+    width: 650px;
     height: 100%;
     padding: 10px 10px;
   }
   .empty-cart {
-    text-align: center;
-    font-size: 600%;
-    min-width: 800px;
-    letter-spacing: 20px;
-    font-weight: 800;
-    line-height: 150px;
-    color:rgba(0, 0, 0, 0.2);
+    font-size: 450%;
+    line-height: 110px;
   }
   .cart-item__wrapper {
     margin-bottom: 10px;
   }
   .item-left .cart_item_title {
-    font-size: 40px;
+    font-size: 30px;
   }
 
   .cart-size-selector__wrap {
@@ -1304,19 +1296,16 @@ body {
     display: -webkit-flex;
     align-items: center;
   }
-  .cart-size-selector__wrap .size-select_label {
-    font-size: 30px;
-  }
-  .cart-size-selector__wrap .size-select {
-    font-size: 30px;
+  .cart-size-selector__wrap .size-select_label, .cart-size-selector__wrap .size-select {
+    font-size: 25px;
   }
 
   .cart-item .item-middle {
-    font-size: 50px;
+    font-size: 30px;
   }
 
   .total__wrap .total__title, .total__wrap .total__price {
-    font-size: 60px;
+    font-size: 40px;
   }  
 
   .order-total .promocode__wrap {
@@ -1324,30 +1313,30 @@ body {
   }
 
   .order__header {
-    font-size: 48px;
+    font-size: 35px;
   }
 
   .form__wrap {
     width: 100%;
   }
   .input__title {
-    font-size: 36px;
-  }
-  .input_field {
-    font-size: 32px;
-    height: 60px;
-  }
-  .ship__wrap label {
-    font-size: 28px;
-  }
-  .user-hints__ship h4 {
     font-size: 20px;
   }
+  .input_field {
+    font-size: 20px;
+    height: 50px;
+  }
+  .ship__wrap label {
+    font-size: 18px;
+  }
+  .user-hints__ship h4 {
+    font-size: 16px;
+  }
   .adress__wrap .adress-form__label, .adress__wrap .input_field {
-    font-size: 32px;
+    font-size: 20px;
   }
   .send-order__button {
-    font-size: 50px;
+    font-size: 35px;
     margin: 35px 0px;
   }
   .ship-option__wrap {

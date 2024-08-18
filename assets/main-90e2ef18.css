@@ -806,7 +806,7 @@ body {
 }
 .size-selector__wrap .size-select {
   font-size: 0.9em;
-  max-width: 180px;
+  max-width: 110px;
 }
 
 @media (max-width: 460px) {
@@ -843,8 +843,8 @@ body {
     font-size: 18px;
   }
   .size-selector__wrap .size-select {
-    width: inherit;
-    font-size: 20px;
+    width: 70px;
+    font-size: 18px;
   }
 }
 
@@ -1181,10 +1181,12 @@ body {
 }
 
 
-.ship__wrap .ship_sdek_pick-up-point,
-.ship__wrap .ship_sdek_rider,
+.ship__wrap .sdek_pick-up-point,
+.ship__wrap .sdek_rider,
 .ship__wrap .PR_pick-up-point,
-.ship__wrap .PR_rider {
+.ship__wrap .PR_rider,
+.ship__wrap .yandex_pick-up-point,
+.ship__wrap .yandex_rider {
   transition: transform .3s ease-in-out;
 }
 
@@ -1212,22 +1214,25 @@ body {
   }
 }
 
-#ship_sdek_rider:checked ~ .adress__wrap .ship-apartments,
-#PR_rider:checked ~ .adress__wrap .ship-apartments {
+#sdek_rider:checked ~ .adress__wrap .ship-apartments,
+#PR_rider:checked ~ .adress__wrap .ship-apartments,
+#yandex_rider:checked ~ .adress__wrap .ship-apartments {
   animation-name: seek;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 
-#ship_sdek_pick-up-point:checked ~ .adress__wrap .ship-apartments,
-#PR_pick-up-point:checked ~ .adress__wrap .ship-apartments {
+#sdek_pick-up-point:checked ~ .adress__wrap .ship-apartments,
+#PR_pick-up-point:checked ~ .adress__wrap .ship-apartments,
+#yandex_pick-up-point:checked ~ .adress__wrap .ship-apartments {
   animation-name: hide;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 
-#ship_sdek_pick-up-point:checked ~ .adress__wrap .ship-index,
-#PR_pick-up-point:checked ~ .adress__wrap .ship-index {
+#sdek_pick-up-point:checked ~ .adress__wrap .ship-index,
+#PR_pick-up-point:checked ~ .adress__wrap .ship-index,
+#yandex_pick-up-point:checked ~ .adress__wrap .ship-index {
   transform: translateY(-100%);
 }
 
@@ -1235,7 +1240,11 @@ body {
   display: none;
 }
 
-#ship_sdek_pick-up-point:checked ~ .adress-label__wrap .rider__hint {
+#sdek_pick-up-point:checked ~ .adress-label__wrap .rider__hint {
+  display: none;
+}
+
+#yandex_pick-up-point:checked ~ .adress-label__wrap .rider__hint {
   display: none;
 }
 
@@ -1243,14 +1252,22 @@ body {
   display: none;
 }
 
-#ship_sdek_rider:checked ~ .adress-label__wrap .pick-up-point__hint {
+#sdek_rider:checked ~ .adress-label__wrap .pick-up-point__hint {
   display: none;
 }
 
-#ship_sdek_pick-up-point:checked ~ .ship__wrap .ship_sdek_pick-up-point,
-#ship_sdek_rider:checked ~ .ship__wrap .ship_sdek_rider,
+#yandex_rider:checked ~ .adress-label__wrap .pick-up-point__hint {
+  display: none;
+}
+
+
+
+#sdek_pick-up-point:checked ~ .ship__wrap .sdek_pick-up-point,
+#sdek_rider:checked ~ .ship__wrap .sdek_rider,
 #PR_pick-up-point:checked ~ .ship__wrap .PR_pick-up-point,
-#PR_rider:checked ~ .ship__wrap .PR_rider {
+#PR_rider:checked ~ .ship__wrap .PR_rider,
+#yandex_pick-up-point:checked ~ .ship__wrap .yandex_pick-up-point,
+#yandex_rider:checked ~ .ship__wrap .yandex_rider {
   border: solid black;
   border-width: 1.5px;
   transform: scale(1.1);
@@ -1349,20 +1366,20 @@ body {
 .ship-inf__wrap, .return-inf__wrap {
   border-radius: 15px;
 }
+
+.ship-inf__wrap ul {
+  list-style: decimal;
+  list-style-position: inside;
+}
 @media (max-width: 500px) {
   .ship__main__wrap h3 {
     font-size: 90%;
   }
   .ship__main__wrap li, .ship__main__wrap p {
     font-size: 52%;
-    font-weight: 500;
   }
   .ship-inf__wrap, .return-inf__wrap {
     padding-inline: 10px;
-  }
-  .ship-inf__wrap ul {
-    list-style-position: inside;
-    list-style-type: square;
   }
 }
 
